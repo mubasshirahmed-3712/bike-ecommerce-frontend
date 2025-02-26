@@ -1,0 +1,113 @@
+/* 🌑 Profile Page - Dark Themed with Black Gradient & Smooth Animations */
+
+.profile-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #000000, #121212, #1e1e1e);
+  animation: bgFade 6s infinite alternate;
+}
+
+/* Subtle Background Animation */
+@keyframes bgFade {
+  0% { background: linear-gradient(135deg, #000000, #121212, #1e1e1e); }
+  100% { background: linear-gradient(135deg, #0a0a0a, #1a1a1a, #262626); }
+}
+
+.profile-card {
+  width: 380px;
+  padding: 25px;
+  background: rgba(20, 20, 20, 0.95);
+  border-radius: 12px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  color: #ffffff;
+  transform: scale(0.95);
+  animation: fadeIn 0.8s ease-in-out forwards;
+}
+
+/* Fade-in effect for profile card */
+@keyframes fadeIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.profile-title {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #ffcc00;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+.profile-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.profile-info {
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  border-radius: 6px;
+  color: #dddddd;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Hover effect for profile info */
+.profile-info:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.02);
+}
+
+/* ✅ Renamed Logout Button to Avoid Navbar Conflict */
+.profile-logout-btn {
+  width: 100%;
+  max-width: 200px;
+  padding: 12px;
+  font-size: 16px;
+  background: #ff4444;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Logout Button Hover Effect */
+.profile-logout-btn:hover {
+  background: #ff6666;
+  transform: scale(1.05);
+}
+
+/* Loading Text */
+.loading-text {
+  font-size: 18px;
+  color: #ffcc00;
+  font-weight: bold;
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 480px) {
+  .profile-card {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .profile-title {
+    font-size: 22px;
+  }
+
+  .profile-info {
+    font-size: 14px;
+  }
+
+  .profile-logout-btn {
+    font-size: 14px;
+    padding: 10px;
+    max-width: 180px;
+  }
+}

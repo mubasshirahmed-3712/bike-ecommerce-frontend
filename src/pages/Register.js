@@ -1,0 +1,154 @@
+import React, { useState } from "react";
+import axios from "axios";
+import "../styles/Register.css";
+import { motion } from "framer-motion";
+
+const Register = () => {
+  const [isLogin, setIsLogin] = useState(true);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  // Handle input change
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value.trim() });
+  };
+
+  // Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+
+    if (!isLogin && formData.password !== formData.confirmPassword) {
+      setError("Passwords do not match");
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const endpoint = isLogin
+        ? "https://bike-ecommerce-backend.onrender.com/api/users/login"
+        : "https://bike-ecommerce-backend.onrender.com/api/users/register";
+
+      const payload = isLogin
+        ? { email: formData.email, password: formData.password }
+        : { name: formData.name, email: formData.email, password: formData.password };
+
+      const { data } = await axios.post(endpoint, payload, {
+        headers: { "Content-Type": "application/json" },
+      });
+
+      // ✅ Store full user info with token
+      const userInfo = {
+        name: data.name,
+        email: data.email,
+        token: data.token, // Ensure token is stored
+      };
+      localStorage.setItem("userInfo", JSON.stringify(userInfo));
+
+      alert(isLogin ? "Login Successful!" : "Registration Successful!");
+
+      // Redirect user to homepage after login/signup
+      window.location.href = "/";
+    } catch (err) {
+      setError(err.response?.data?.message || "Something went wrong");
+
+      // ✅ Clear password fields in case of error
+      setFormData((prev) => ({ ...prev, password: "", confirmPassword: "" }));
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="register-page">
+      <motion.div
+        className="register-container"
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5 }}
+      >
+        <div className="form-box">
+          <h2 className="brand-logo">BikeZone</h2>
+
+          {error && <p className="error-message">{error}</p>}
+
+          <form onSubmit={handleSubmit}>
+            {!isLogin && (
+              <div className="form-group">
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Full Name"
+                  className="form-input"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+            )}
+
+            <div className="form-group">
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                className="form-input"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+            </div>
+
+            <div className="form-group">
+              <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                className="form-input"
+                value={formData.password}
+                onChange={handleChange}
+                required
+              />
+            </div>
+
+            {!isLogin && (
+              <div className="form-group">
+                <input
+                  type="password"
+                  name="confirmPassword"
+                  placeholder="Confirm Password"
+                  className="form-input"
+                  value={formData.confirmPassword}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+            )}
+
+            <button type="submit" className="btn-submit" disabled={loading}>
+              {loading ? "Processing..." : isLogin ? "Login" : "Signup"}
+            </button>
+          </form>
+
+          <div className="toggle-box">
+            <p>
+              {isLogin ? "Don't have an account?" : "Already have an account?"}{" "}
+              <span onClick={() => setIsLogin(!isLogin)} className="toggle-link">
+                {isLogin ? "Signup" : "Login"}
+              </span>
+            </p>
+          </div>
+        </div>
+      </motion.div>
+    </div>
+  );
+};
+
+export default Register;

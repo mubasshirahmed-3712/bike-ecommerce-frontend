@@ -1,0 +1,120 @@
+/* Custom Navbar */
+@import url("https://fonts.googleapis.com/css2?family=Knewave&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nova+Round&display=swap');
+
+.custom-navbar {
+  background: rgba(10, 10, 10, 0.8);
+  /* Blackish glassmorphism */
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  padding: 1rem 0;
+  border-bottom-width: 4px;
+  border-bottom-style: double;
+  border-bottom-color: #3d351e;
+  font-family: "Nova Round", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Navbar Container */
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo */
+.custom-logo {
+  width: 100px;
+  height: 100px;
+  border-radius: 30px;
+}
+
+/* Navbar Links */
+.custom-nav-link {
+  font-size: 1.1rem;
+  padding: 10px 20px;
+  color: #f0f0f0 !important;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+  margin-right: 10px;
+}
+
+/* Hover Underline Animation */
+.custom-nav-link::after {
+  content: "";
+  width: 0;
+  height: 2px;
+  background: #ffcc00;
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  transition: width 0.3s ease-in-out;
+}
+
+.custom-nav-link:hover::after {
+  width: 100%;
+}
+
+.custom-nav-link:hover {
+  color: #ffcc00 !important;
+}
+
+.custom-nav-link.active {
+  color: #ffcc00 !important;
+}
+
+/* Navbar Icons */
+.nav-icon {
+  font-size: 1.2rem;
+}
+
+/* Navbar Toggler */
+.custom-toggler {
+  border: none;
+  background: transparent;
+}
+
+.toggler-icon {
+  font-size: 24px;
+  color: white;
+}
+
+/* Logout Button */
+.logout-btn {
+  display: flex;
+  align-items: center;
+  background: #ff3b3b;
+  border-radius: 10px;
+  padding: 10px 15px;
+  cursor: pointer;
+  border: none;
+  color: white;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+}
+
+.logout-btn:hover {
+  background: #ff2020;
+}
+
+.logout-icon {
+  font-size: 20px;
+  margin-right: 5px;
+}
+
+/* Responsive Navbar */
+@media (max-width: 991px) {
+  .custom-collapse {
+    text-align: center;
+  }
+
+  .custom-nav-item {
+    margin: 10px 0;
+  }
+}

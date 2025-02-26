@@ -1,0 +1,145 @@
+/* Footer Styling */
+
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand+SC&display=swap');
+.footer {
+  background: rgba(10, 10, 10, 0.7); /* Blackish glassmorphism */
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  padding: 40px 20px;
+  color: #f0f0f0;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Footer Container */
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Sections */
+.footer-section {
+  flex: 1;
+  min-width: 200px;
+  margin-bottom: 20px;
+}
+
+.footer-logo {
+  width: 120px;
+  margin-bottom: 10px;
+}
+
+.footer-section h4 {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  color: #ffcc00;
+  text-transform: uppercase;
+}
+
+.footer-section p,
+.footer-section ul {
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 6px;
+}
+
+.footer-section ul li a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+.footer-section ul li a:hover {
+  color: #ffcc00;
+}
+
+/* Social Icons */
+.social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icons a {
+  color: white;
+  font-size: 1.5rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #ffcc00;
+  transform: scale(1.1);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 1rem;
+}
+.designed-by {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #ffcc00; /* Gold color */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 5px rgba(255, 204, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.designed-by a {
+  color: #ffcc00;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+  font-family: "Patrick Hand SC", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.designed-by a:hover {
+  color: #ffffff;
+  text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.8);
+}
+
+.heart {
+  color: red;
+  font-size: 1.2rem;
+  animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-section {
+    margin-bottom: 30px;
+  }
+}

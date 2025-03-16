@@ -1,132 +1,141 @@
-/* Custom Navbar */
-@import url("https://fonts.googleapis.com/css2?family=Knewave&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Nova+Round&display=swap');
+/* Navbar.css */
 
-/* Sticky Navbar */
+/* Global Styles */
 .custom-navbar {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
+  background: rgba(255, 255, 255, 0.2); /* Glassmorphic effect */
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   z-index: 1000;
-  background: rgba(10, 10, 10, 0.8); /* Glassmorphism */
-  backdrop-filter: blur(12px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-  padding: 1rem 0;
-  border-bottom-width: 4px;
-  border-bottom-style: double;
-  border-bottom-color: #3d351e;
-  font-family: "Nova Round", serif;
-  font-weight: 400;
+  padding: 10px 20px;
 }
 
-/* Navbar Container */
 .navbar-container {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: auto;
 }
 
 /* Logo */
-.custom-logo {
-  width: 80px;
-  height: 80px;
-  border-radius: 20px;
+.custom-brand {
+  display: flex;
+  align-items: center;
 }
 
-@media (max-width: 600px) {
-  .custom-logo {
-    width: 60px;
-    height: 60px;
-  }
+.custom-logo {
+  height: 50px;
+  width: auto;
+  transition: transform 0.3s ease;
+}
+
+.custom-logo:hover {
+  transform: scale(1.1);
 }
 
 /* Navbar Links */
-.custom-nav-link {
-  font-size: 1.1rem;
-  padding: 10px 20px;
-  color: #f0f0f0 !important;
+.custom-menu {
   display: flex;
   align-items: center;
-  gap: 10px;
+}
+
+.custom-nav-list {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 0;
+}
+
+.custom-nav-item {
   position: relative;
+}
+
+.custom-nav-link {
   text-decoration: none;
-  transition: color 0.3s ease-in-out;
-  margin-right: 10px;
-}
-
-/* Hover Underline Animation */
-.custom-nav-link::after {
-  content: "";
-  width: 0;
-  height: 2px;
-  background: #ffcc00;
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  transition: width 0.3s ease-in-out;
-}
-
-.custom-nav-link:hover::after {
-  width: 100%;
+  font-size: 16px;
+  font-weight: 600;
+  color: #2c3e50;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 15px;
+  transition: color 0.3s ease;
 }
 
 .custom-nav-link:hover {
-  color: #ffcc00 !important;
+  color: #e67e22;
 }
 
-/* Active Link */
+/* Active Link Style */
 .custom-nav-link.active {
-  color: #ffcc00 !important;
-  font-weight: bold;
-  text-decoration: underline;
+  color: #e67e22;
+  border-bottom: 2px solid #e67e22;
 }
 
-/* Navbar Icons */
+/* Icons */
 .nav-icon {
-  font-size: 1.2rem;
+  font-size: 18px;
 }
 
-/* Navbar Toggler */
+/* Hamburger Menu */
 .custom-toggler {
+  display: none;
+  background: none;
   border: none;
-  background: transparent;
-}
-
-.toggler-icon {
-  font-size: 24px;
-  color: white;
+  font-size: 28px;
+  cursor: pointer;
+  color: #2c3e50;
 }
 
 /* Logout Button */
 .logout-btn {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
   display: flex;
   align-items: center;
-  background: #ff3b3b;
-  border-radius: 10px;
-  padding: 10px 15px;
-  cursor: pointer;
-  border: none;
-  color: white;
-  font-weight: bold;
-  transition: all 0.3s ease-in-out;
+  gap: 8px;
+  transition: background 0.3s ease;
 }
 
 .logout-btn:hover {
-  background: #ff2020;
+  background: #c0392b;
 }
 
-.logout-icon {
-  font-size: 20px;
-  margin-right: 5px;
-}
-
-/* Mobile Navbar Fix */
-@media (max-width: 991px) {
-  .custom-collapse {
-    text-align: center;
-    display: flex;
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .custom-menu {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.9);
     flex-direction: column;
-    transition: all 0.3s ease-in-out;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 0;
+    display: none;
+  }
+
+  .custom-menu.open {
+    display: flex;
+  }
+
+  .custom-nav-list {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .custom-toggler {
+    display: block;
   }
 }

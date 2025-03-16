@@ -1,20 +1,23 @@
-/* Custom Navbar */
+/* Import Custom Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Knewave&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nova+Round&display=swap');
 
+/* Custom Navbar */
 .custom-navbar {
-  background: rgba(10, 10, 10, 0.8);
-  /* Blackish glassmorphism */
+  background: rgba(10, 10, 10, 0.8); /* Blackish glassmorphism */
   backdrop-filter: blur(12px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-  padding: 1rem 0;
-  border-bottom-width: 4px;
-  border-bottom-style: double;
-  border-bottom-color: #3d351e;
+  padding: 1rem 2rem;
+  border-bottom: 4px double #3d351e;
   font-family: "Nova Round", serif;
   font-weight: 400;
   font-style: normal;
+  position: fixed; /* Ensures navbar stays at the top */
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
 }
 
 /* Navbar Container */
@@ -22,27 +25,34 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 /* Logo */
 .custom-logo {
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   border-radius: 30px;
 }
 
 /* Navbar Links */
+.custom-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
 .custom-nav-link {
   font-size: 1.1rem;
-  padding: 10px 20px;
+  padding: 10px 15px;
   color: #f0f0f0 !important;
   display: flex;
   align-items: center;
   gap: 10px;
-  position: relative;
   text-decoration: none;
   transition: color 0.3s ease-in-out;
-  margin-right: 10px;
+  position: relative;
 }
 
 /* Hover Underline Animation */
@@ -74,10 +84,11 @@
   font-size: 1.2rem;
 }
 
-/* Navbar Toggler */
+/* Navbar Toggler for Mobile */
 .custom-toggler {
   border: none;
   background: transparent;
+  display: none; /* Hidden on desktop */
 }
 
 .toggler-icon {
@@ -110,11 +121,36 @@
 
 /* Responsive Navbar */
 @media (max-width: 991px) {
-  .custom-collapse {
-    text-align: center;
+  .custom-toggler {
+    display: block; /* Show toggler icon on mobile */
   }
 
-  .custom-nav-item {
-    margin: 10px 0;
+  .custom-nav-links {
+    display: none; /* Hide navbar links initially */
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 20px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .custom-nav-links.active {
+    display: flex; /* Show when toggler is clicked */
+  }
+
+  .custom-nav-link {
+    width: 100%;
+    text-align: center;
+    padding: 15px 0;
+  }
+
+  .logout-btn {
+    width: 90%;
+    justify-content: center;
   }
 }

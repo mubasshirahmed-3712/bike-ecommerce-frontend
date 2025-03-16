@@ -1,7 +1,7 @@
 /* Import Custom Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Knewave&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Nova+Round&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nova+Round&display=swap");
 
 /* Custom Navbar */
 .custom-navbar {
@@ -13,7 +13,7 @@
   font-family: "Nova Round", serif;
   font-weight: 400;
   font-style: normal;
-  position: fixed; /* Ensures navbar stays at the top */
+  position: fixed;
   width: 100%;
   top: 0;
   left: 0;
@@ -25,7 +25,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
@@ -119,10 +119,33 @@
   margin-right: 5px;
 }
 
-/* Responsive Navbar */
-@media (max-width: 991px) {
+/* Responsive Breakpoints */
+
+/* ✅ Large tablets (up to 1024px) */
+@media (max-width: 1024px) {
+  .custom-navbar {
+    padding: 0.8rem 1.5rem;
+  }
+
+  .custom-logo {
+    width: 70px;
+    height: 70px;
+  }
+
+  .custom-nav-links {
+    gap: 15px;
+  }
+
+  .custom-nav-link {
+    font-size: 1rem;
+    padding: 8px 12px;
+  }
+}
+
+/* ✅ Tablets & Medium Screens (up to 768px) */
+@media (max-width: 768px) {
   .custom-toggler {
-    display: block; /* Show toggler icon on mobile */
+    display: block; /* Show toggler icon */
   }
 
   .custom-nav-links {
@@ -150,7 +173,33 @@
   }
 
   .logout-btn {
-    width: 90%;
-    justify-content: center;
+   display: none;
+  }
+}
+
+/* ✅ Small Mobile Screens (up to 480px) */
+@media (max-width: 480px) {
+  .custom-navbar {
+    padding: 0.6rem 1rem;
+  }
+
+  .custom-logo {
+    width: 60px;
+    height: 60px;
+  }
+
+  .custom-nav-links {
+    padding: 15px 0;
+  }
+
+  .custom-nav-link {
+    font-size: 0.9rem;
+    padding: 12px;
+  }
+
+  .logout-btn {
+    width: 100%;
+    font-size: 0.9rem;
+    padding: 10px;
   }
 }

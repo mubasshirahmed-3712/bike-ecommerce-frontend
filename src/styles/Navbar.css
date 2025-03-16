@@ -173,7 +173,7 @@
   }
 
   .logout-btn {
-   display: none;
+   display: none !important;
   }
 }
 
@@ -198,6 +198,6 @@
   }
 
   .logout-btn {
-    display: none;
+    display: none !important
   }
 }

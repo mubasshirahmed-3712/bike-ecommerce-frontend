@@ -9,7 +9,7 @@ import bike14 from "../assets/images2/bike14.jpg";
 
 const Home = () => {
   useEffect(() => {
-    AOS.init({ duration: 100, once: true });
+    AOS.init();
   }, []);
 
   return (

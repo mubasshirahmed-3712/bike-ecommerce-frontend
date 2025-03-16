@@ -4,11 +4,6 @@ body {
   font-family: 'Poppins', sans-serif;
   background: black;
 }
-html, body {
-  overflow-x: hidden;  /* Prevents horizontal scroll */
-  overflow: hidden;
-}
-
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Oswald', sans-serif;

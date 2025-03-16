@@ -3,9 +3,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nova+Round&display=swap');
 
+/* Sticky Navbar */
 .custom-navbar {
-  background: rgba(10, 10, 10, 0.8);
-  /* Blackish glassmorphism */
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(10, 10, 10, 0.8); /* Glassmorphism */
   backdrop-filter: blur(12px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
   padding: 1rem 0;
@@ -14,7 +18,6 @@
   border-bottom-color: #3d351e;
   font-family: "Nova Round", serif;
   font-weight: 400;
-  font-style: normal;
 }
 
 /* Navbar Container */
@@ -26,9 +29,16 @@
 
 /* Logo */
 .custom-logo {
-  width: 100px;
-  height: 100px;
-  border-radius: 30px;
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
+}
+
+@media (max-width: 600px) {
+  .custom-logo {
+    width: 60px;
+    height: 60px;
+  }
 }
 
 /* Navbar Links */
@@ -65,8 +75,11 @@
   color: #ffcc00 !important;
 }
 
+/* Active Link */
 .custom-nav-link.active {
   color: #ffcc00 !important;
+  font-weight: bold;
+  text-decoration: underline;
 }
 
 /* Navbar Icons */
@@ -108,13 +121,12 @@
   margin-right: 5px;
 }
 
-/* Responsive Navbar */
+/* Mobile Navbar Fix */
 @media (max-width: 991px) {
   .custom-collapse {
     text-align: center;
-  }
-
-  .custom-nav-item {
-    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease-in-out;
   }
 }

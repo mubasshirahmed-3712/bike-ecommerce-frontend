@@ -13,7 +13,9 @@ function Navbar() {
 
   const storedUserInfo = localStorage.getItem("userInfo");
   const userInfo =
-    storedUserInfo && storedUserInfo !== "undefined" && storedUserInfo !== "null"
+    storedUserInfo &&
+    storedUserInfo !== "undefined" &&
+    storedUserInfo !== "null"
       ? JSON.parse(storedUserInfo)
       : null;
 
@@ -23,45 +25,62 @@ function Navbar() {
   };
 
   return (
-    <nav className="custom-navbar">
-      <div className="navbar-container">
-        {/* Logo */}
-        <NavLink className="custom-brand" to="/">
+    <nav className="navbar navbar-expand-lg custom-navbar">
+      <div className="container navbar-container">
+        {/* Brand Logo */}
+        <NavLink className="navbar-brand custom-brand" to="/">
           <img src={logo} alt="BikeZone Logo" className="custom-logo" />
         </NavLink>
 
         {/* Hamburger Button */}
-        <button className="custom-toggler" onClick={() => setMenuOpen(!menuOpen)}>
-          {menuOpen ? <HiX className="toggler-icon" /> : <HiMenu className="toggler-icon" />}
+        <button
+          className="navbar-toggler custom-toggler"
+          type="button"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          {menuOpen ? (
+            <HiX className="toggler-icon" />
+          ) : (
+            <HiMenu className="toggler-icon" />
+          )}
         </button>
 
-        {/* Navbar Links */}
-        <div className={`custom-menu ${menuOpen ? "open" : ""}`}>
-          <ul className="custom-nav-list">
-            <li className="custom-nav-item">
-              <NavLink className="custom-nav-link" to="/">
+        {/* Centered Navbar Links */}
+        <div
+          className={`collapse navbar-collapse ${
+            menuOpen ? "show" : ""
+          } custom-collapse`}
+        >
+          <ul className="navbar-nav mx-auto custom-nav-list">
+            <li className="nav-item custom-nav-item">
+              <NavLink className="nav-link custom-nav-link" to="/">
                 <FaHome className="nav-icon" /> Home
               </NavLink>
             </li>
-            <li className="custom-nav-item">
-              <NavLink className="custom-nav-link" to="/products">
+            <li className="nav-item custom-nav-item">
+              <NavLink className="nav-link custom-nav-link" to="/products">
                 <FaMotorcycle className="nav-icon" /> Products
               </NavLink>
             </li>
-            <li className="custom-nav-item">
-              <NavLink className="custom-nav-link" to="/cart">
+            <li className="nav-item custom-nav-item">
+              <NavLink className="nav-link custom-nav-link" to="/cart">
                 <FaShoppingCart className="nav-icon" /> Cart
               </NavLink>
             </li>
-            {userInfo ? (
-              <li className="custom-nav-item">
-                <NavLink className="custom-nav-link" to="/profile">
+
+            {/* Profile (Inside Nav Links) */}
+            {userInfo && (
+              <li className="nav-item custom-nav-item">
+                <NavLink className="nav-link custom-nav-link" to="/profile">
                   <FaUser className="nav-icon" /> {userInfo.name || "Profile"}
                 </NavLink>
               </li>
-            ) : (
-              <li className="custom-nav-item">
-                <NavLink className="custom-nav-link" to="/register">
+            )}
+
+            {/* Register (If User is Logged Out) */}
+            {!userInfo && (
+              <li className="nav-item custom-nav-item">
+                <NavLink className="nav-link custom-nav-link" to="/register">
                   <FaUserPlus className="nav-icon" /> Register
                 </NavLink>
               </li>
@@ -69,12 +88,14 @@ function Navbar() {
           </ul>
         </div>
 
-        {/* Logout Button */}
+        {/* Logout Button (Fixed at Right) */}
         {userInfo && (
-          <button onClick={handleLogout} className="logout-btn">
-            <FiLogOut className="logout-icon" />
-            <span>Logout</span>
-          </button>
+          <div className="custom-logout-container">
+            <button onClick={handleLogout} className="logout-btn">
+              <FiLogOut className="logout-icon" />
+              <span className="logout-text">Logout</span>
+            </button>
+          </div>
         )}
       </div>
     </nav>

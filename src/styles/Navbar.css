@@ -198,8 +198,6 @@
   }
 
   .logout-btn {
-    width: 100%;
-    font-size: 0.9rem;
-    padding: 10px;
+    display: none;
   }
 }

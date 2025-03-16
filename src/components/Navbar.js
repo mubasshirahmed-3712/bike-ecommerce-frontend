@@ -90,7 +90,7 @@ function Navbar() {
 
         {/* Logout Button (Fixed at Right) */}
         {userInfo && (
-          <div className="custom-logout-container">
+          <div className="custom-logout-container lgc">
             <button onClick={handleLogout} className="logout-btn">
               <FiLogOut className="logout-icon" />
               <span className="logout-text">Logout</span>

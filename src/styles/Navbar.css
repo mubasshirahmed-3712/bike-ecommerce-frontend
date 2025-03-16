@@ -175,6 +175,9 @@
   .logout-btn {
    display: none !important;
   }
+  .lgc{
+    display: none;
+  }
 }
 
 /* ✅ Small Mobile Screens (up to 480px) */
@@ -199,5 +202,8 @@
 
   .logout-btn {
     display: none !important
+  }
+  .lgc{
+    display: none;
   }
 }

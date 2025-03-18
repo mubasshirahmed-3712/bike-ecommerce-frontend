@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Spinner, Alert } from "react-bootstrap";
 import { CartContext } from "../context/CartContext"; 
+import toast, { Toaster } from "react-hot-toast"; // ✅ Import hot toast
 import "../styles/productStyles.css";
 
 const ProductListing = () => {
@@ -21,6 +22,7 @@ const ProductListing = () => {
         setBikes(data);
       } catch (error) {
         setError(error.message);
+        toast.error("Failed to load products. Please try again."); // ✅ Error toast for API failure
       } finally {
         setLoading(false);
       }
@@ -30,17 +32,20 @@ const ProductListing = () => {
   }, []);
 
   const handleAddToCart = (bikeId) => {
+    const selectedBike = bikes.find((bike) => bike._id === bikeId);
+    if (!selectedBike || selectedBike.quantity === 0) {
+      toast.error("This bike is out of stock!"); // ✅ Error toast if out of stock
+      return;
+    }
+
+    // Update stock UI
     setBikes((prevBikes) =>
       prevBikes.map((bike) =>
-        bike._id === bikeId && bike.quantity > 0
-          ? { ...bike, quantity: bike.quantity - 1 }
-          : bike
+        bike._id === bikeId ? { ...bike, quantity: bike.quantity - 1 } : bike
       )
     );
 
-    const selectedBike = bikes.find((bike) => bike._id === bikeId);
-    if (!selectedBike || selectedBike.quantity === 0) return;
-
+    // Update cart in localStorage
     const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
     const existingItem = cartItems.find((item) => item._id === bikeId);
 
@@ -51,12 +56,14 @@ const ProductListing = () => {
     }
 
     localStorage.setItem("cart", JSON.stringify(cartItems));
-
     addToCart({ ...selectedBike, quantity: 1 });
+
+    toast.success(`${selectedBike.name} added to cart!`); // ✅ Success toast for adding to cart
   };
 
   return (
     <div className="product-listing">
+      <Toaster position="top-right" reverseOrder={false} /> {/* ✅ Add Toaster here */}
       <div className="container">
         <h2>Explore Our Premium Superbikes</h2>
 

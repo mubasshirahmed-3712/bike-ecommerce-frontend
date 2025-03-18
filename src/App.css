@@ -8,3 +8,25 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Oswald', sans-serif;
 }
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+/* Scrollbar Track */
+::-webkit-scrollbar-track {
+  background: #f8f3d9; /* Light background (Color Hunt palette) */
+  border-radius: 10px;
+}
+
+/* Scrollbar Handle */
+::-webkit-scrollbar-thumb {
+  background: #b9b28a; /* Soft Brown */
+  border-radius: 10px;
+  transition: background 0.3s;
+}
+
+/* Scrollbar Handle on Hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #504b38; /* Dark Brown */
+}

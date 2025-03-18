@@ -15,7 +15,7 @@ body {
   padding: 0 15px;
 }
 
-h2 {
+ .product-listing h2 {
   text-align: center;
   font-size: 40px;
   font-weight: 600;
@@ -28,7 +28,7 @@ h2 {
   position: relative; /* Allows for additional effects */
 }
 
-h2::after {
+  h2::after {
   content: "";
   position: absolute;
   width: 80px;

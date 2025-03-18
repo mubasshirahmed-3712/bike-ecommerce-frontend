@@ -4,7 +4,7 @@ import { FaHome, FaShoppingCart, FaMotorcycle, FaUser, FaUserPlus } from "react-
 import { FiLogOut } from "react-icons/fi";
 import { HiMenu, HiX } from "react-icons/hi";
 import { toast } from "react-hot-toast"; // ✅ Import Toast
-import logo from "../assets/images/logonew.png"
+import logo from "../assets/images/logonew1.png"
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/Navbar.css";
 

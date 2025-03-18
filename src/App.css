@@ -15,13 +15,13 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Scrollbar Track */
 ::-webkit-scrollbar-track {
-  background: #f8f3d9; /* Light background (Color Hunt palette) */
+  background: #000; 
   border-radius: 10px;
 }
 
 /* Scrollbar Handle */
 ::-webkit-scrollbar-thumb {
-  background: #b9b28a; /* Soft Brown */
+  background: #ffcc00;
   border-radius: 10px;
   transition: background 0.3s;
 }

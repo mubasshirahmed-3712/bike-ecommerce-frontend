@@ -73,6 +73,7 @@
   justify-content: center;
   gap: 15px;
   flex-wrap: wrap;
+  margin-left: -135px;
 }
 
 .social-icons a {

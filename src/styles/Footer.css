@@ -1,6 +1,6 @@
 /* Footer Styling */
-
 @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand+SC&display=swap');
+
 .footer {
   background: rgba(10, 10, 10, 0.7); /* Blackish glassmorphism */
   backdrop-filter: blur(10px);
@@ -19,13 +19,15 @@
   align-items: flex-start;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 10px;
 }
 
 /* Sections */
 .footer-section {
   flex: 1;
-  min-width: 200px;
+  min-width: 250px;
   margin-bottom: 20px;
+  text-align: left;
 }
 
 .footer-logo {
@@ -68,7 +70,9 @@
 /* Social Icons */
 .social-icons {
   display: flex;
+  justify-content: center;
   gap: 15px;
+  flex-wrap: wrap;
 }
 
 .social-icons a {
@@ -90,6 +94,7 @@
   border-top: 1px solid rgba(255, 255, 255, 0.2);
   font-size: 1rem;
 }
+
 .designed-by {
   font-size: 1rem;
   font-weight: bold;
@@ -130,10 +135,8 @@
   100% { transform: scale(1); }
 }
 
-
-
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .footer-container {
     flex-direction: column;
     align-items: center;
@@ -141,6 +144,52 @@
   }
 
   .footer-section {
-    margin-bottom: 30px;
+    min-width: 100%;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 30px 15px;
+  }
+
+  .footer-section h4 {
+    font-size: 1.1rem;
+  }
+
+  .footer-section p,
+  .footer-section ul {
+    font-size: 0.9rem;
+  }
+
+  .footer-bottom {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 25px 10px;
+  }
+
+  .footer-section h4 {
+    font-size: 1rem;
+  }
+
+  .footer-section p,
+  .footer-section ul {
+    font-size: 0.85rem;
+  }
+
+  .social-icons a {
+    font-size: 1.3rem;
+  }
+
+  .footer-bottom {
+    font-size: 0.8rem;
   }
 }

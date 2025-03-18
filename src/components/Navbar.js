@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { FaHome, FaShoppingCart, FaMotorcycle, FaUser, FaUserPlus } from "react-icons/fa";
 import { FiLogOut } from "react-icons/fi";
 import { HiMenu, HiX } from "react-icons/hi";
+import { toast } from "react-hot-toast"; // ✅ Import Toast
 import logo from "../assets/images/bike estore.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/Navbar.css";
@@ -10,22 +11,37 @@ import "../styles/Navbar.css";
 function Navbar() {
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isScrolling, setIsScrolling] = useState(false);
 
   const storedUserInfo = localStorage.getItem("userInfo");
   const userInfo =
-    storedUserInfo &&
-    storedUserInfo !== "undefined" &&
-    storedUserInfo !== "null"
+    storedUserInfo && storedUserInfo !== "undefined" && storedUserInfo !== "null"
       ? JSON.parse(storedUserInfo)
       : null;
 
+  // ✅ Handle Scroll Effect
+  useEffect(() => {
+    let prevScrollY = window.scrollY;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      setIsScrolling(currentScrollY > prevScrollY && currentScrollY > 50);
+      prevScrollY = currentScrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // ✅ Handle Logout with Toast
   const handleLogout = () => {
     localStorage.removeItem("userInfo");
+    toast.success("Logged out successfully!"); // 🔥 Show Toast
     navigate("/register");
   };
 
   return (
-    <nav className="navbar navbar-expand-lg custom-navbar">
+    <nav className={`navbar navbar-expand-lg custom-navbar ${isScrolling ? "hidden-navbar" : ""}`}>
       <div className="container navbar-container">
         {/* Brand Logo */}
         <NavLink className="navbar-brand custom-brand" to="/">
@@ -33,24 +49,12 @@ function Navbar() {
         </NavLink>
 
         {/* Hamburger Button */}
-        <button
-          className="navbar-toggler custom-toggler"
-          type="button"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          {menuOpen ? (
-            <HiX className="toggler-icon" />
-          ) : (
-            <HiMenu className="toggler-icon" />
-          )}
+        <button className="navbar-toggler custom-toggler" type="button" onClick={() => setMenuOpen(!menuOpen)}>
+          {menuOpen ? <HiX className="toggler-icon" /> : <HiMenu className="toggler-icon" />}
         </button>
 
         {/* Centered Navbar Links */}
-        <div
-          className={`collapse navbar-collapse ${
-            menuOpen ? "show" : ""
-          } custom-collapse`}
-        >
+        <div className={`collapse navbar-collapse ${menuOpen ? "show" : ""} custom-collapse`}>
           <ul className="navbar-nav mx-auto custom-nav-list">
             <li className="nav-item custom-nav-item">
               <NavLink className="nav-link custom-nav-link" to="/">

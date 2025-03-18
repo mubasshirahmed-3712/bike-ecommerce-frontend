@@ -46,7 +46,7 @@ const Cart = () => {
 
   return (
     <div className="cart-page container">
-      <h2 className="text-center">🛒 Your Shopping Cart</h2>
+      <h2 className="text-center shopping-cart">🛒 Your Shopping Cart</h2>
 
       {cart.length === 0 ? (
         <Alert variant="warning" className="text-center">Your cart is empty!</Alert>

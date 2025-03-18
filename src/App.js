@@ -13,6 +13,7 @@ import Checkout from "./pages/Checkout";
 import { AuthProvider } from "./context/AuthContext"; 
 import { CartProvider } from "./context/CartContext"; 
 import ProtectedRoute from "./components/ProtectedRoute"; 
+import { Toaster } from 'react-hot-toast';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
               <Route path="/profile" element={<Profile />} />
             </Route>
           </Routes>
+          <Toaster />
           <Footer />
         </Router>
       </CartProvider>

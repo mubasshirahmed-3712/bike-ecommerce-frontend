@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import "../styles/Register.css";
 import { motion } from "framer-motion";
+import toast from "react-hot-toast";
 
 const Register = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -11,7 +12,6 @@ const Register = () => {
     password: "",
     confirmPassword: "",
   });
-  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
   // Handle input change
@@ -22,10 +22,9 @@ const Register = () => {
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError("");
 
     if (!isLogin && formData.password !== formData.confirmPassword) {
-      setError("Passwords do not match");
+      toast.error("Passwords do not match!");
       return;
     }
 
@@ -45,19 +44,19 @@ const Register = () => {
       });
 
       // ✅ Store full user info with token
-      const userInfo = {
-        name: data.name,
-        email: data.email,
-        token: data.token, // Ensure token is stored
-      };
-      localStorage.setItem("userInfo", JSON.stringify(userInfo));
+      localStorage.setItem(
+        "userInfo",
+        JSON.stringify({ name: data.name, email: data.email, token: data.token })
+      );
 
-      alert(isLogin ? "Login Successful!" : "Registration Successful!");
+      toast.success(isLogin ? "Login Successful!" : "Registration Successful!");
 
       // Redirect user to homepage after login/signup
-      window.location.href = "/";
+      setTimeout(() => {
+        window.location.href = "/";
+      }, 1500);
     } catch (err) {
-      setError(err.response?.data?.message || "Something went wrong");
+      toast.error(err.response?.data?.message || "Something went wrong!");
 
       // ✅ Clear password fields in case of error
       setFormData((prev) => ({ ...prev, password: "", confirmPassword: "" }));
@@ -76,8 +75,6 @@ const Register = () => {
       >
         <div className="form-box">
           <h2 className="brand-logo">BikeZone</h2>
-
-          {error && <p className="error-message">{error}</p>}
 
           <form onSubmit={handleSubmit}>
             {!isLogin && (

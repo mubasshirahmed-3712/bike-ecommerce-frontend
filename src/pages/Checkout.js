@@ -1,6 +1,6 @@
-
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 import "../styles/Checkout.css";
 
 const Checkout = () => {
@@ -26,13 +26,13 @@ const Checkout = () => {
     const userInfo = JSON.parse(localStorage.getItem("userInfo"));
 
     if (!userInfo || !userInfo.token) {
-      alert("Please log in to place an order.");
+      toast.error("Please log in to place an order.");
       navigate("/register");
       return;
     }
 
     if (cart.length === 0) {
-      alert("Your cart is empty!");
+      toast.error("Your cart is empty!");
       navigate("/cart");
       return;
     }
@@ -53,30 +53,31 @@ const Checkout = () => {
       totalPrice: cart.reduce((total, item) => total + item.price * item.quantity, 0),
     };
 
-    try {
-      const res = await fetch("https://bike-ecommerce-backend.onrender.com/api/orders/place", {
+    // Using toast.promise for better UI feedback
+    await toast.promise(
+      fetch("https://bike-ecommerce-backend.onrender.com/api/orders/place", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${userInfo.token}`,
         },
         body: JSON.stringify(orderDetails),
-      });
-
-      if (res.ok) {
-        alert("Order Confirmed! A confirmation email has been sent.");
-        localStorage.removeItem("cart");
-        navigate("/");
-      } else {
-        const errorData = await res.json();
-        alert(errorData.message || "Failed to place order. Please try again.");
+      }).then(async (res) => {
+        if (!res.ok) {
+          throw new Error((await res.json()).message || "Failed to place order.");
+        }
+        return res.json();
+      }),
+      {
+        loading: "Placing order...",
+        success: "Order Confirmed! A confirmation email has been sent.",
+        error: "Failed to place order. Please try again.",
       }
-    } catch (error) {
-      console.error("Checkout error:", error);
-      alert("Something went wrong. Please try again later.");
-    } finally {
-      setLoading(false);
-    }
+    );
+
+    localStorage.removeItem("cart");
+    navigate("/");
+    setLoading(false);
   };
 
   return (

@@ -8,6 +8,16 @@
 .shopping-cart{
   margin-top: 120px;
 }
+.shopping-cart::after {
+  content: "";
+  position: absolute;
+  width: 80px;
+  height: 3px;
+  background-color: #f39c12; /* Highlight with a golden line */
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
 
 /* Cart Table */
 .cart-table {

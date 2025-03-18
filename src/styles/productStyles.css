@@ -28,7 +28,7 @@ body {
   position: relative; /* Allows for additional effects */
 }
 
-  h2::after {
+  .product-listing h2::after {
   content: "";
   position: absolute;
   width: 80px;

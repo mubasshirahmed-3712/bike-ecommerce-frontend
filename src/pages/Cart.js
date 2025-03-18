@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Button, Table, Alert } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 import "../styles/Cart.css";
 
 const Cart = () => {
@@ -46,7 +46,6 @@ const Cart = () => {
 
   return (
     <div className="cart-page container">
-      <Toaster position="top-right" reverseOrder={false} />
       <h2 className="text-center">🛒 Your Shopping Cart</h2>
 
       {cart.length === 0 ? (

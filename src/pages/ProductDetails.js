@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { Spinner, Button, Alert } from "react-bootstrap";
+import toast from "react-hot-toast"; // ✅ Import toast
 import { CartContext } from "../context/CartContext"; 
 import { useAuth } from "../context/AuthContext"; 
 import "../styles/ProductDetails.css";
@@ -11,7 +12,6 @@ const ProductDetails = () => {
   const { user, loading } = useAuth();
   const [bike, setBike] = useState(null);
   const [error, setError] = useState(null);
-  const [cartError, setCartError] = useState(null);
 
   useEffect(() => {
     const fetchBikeDetails = async () => {
@@ -22,8 +22,10 @@ const ProductDetails = () => {
         }
         const data = await response.json();
         setBike(data);
+        toast.success("Product details loaded!"); // ✅ Toast when product details are successfully fetched
       } catch (error) {
         setError(error.message);
+        toast.error("Failed to load product details!"); // ✅ Toast when fetching fails
       }
     };
 
@@ -33,11 +35,14 @@ const ProductDetails = () => {
   const handleAddToCart = () => {
     if (loading) return;
     if (!user) {
-      setCartError("You must be logged in to add items to the cart.");
+      toast.error("You must be logged in to add items to the cart!"); // ✅ Toast when user is not logged in
       return;
     }
 
-    if (!bike || bike.quantity === 0) return;
+    if (!bike || bike.quantity === 0) {
+      toast.error("This bike is out of stock!"); // ✅ Toast when bike is out of stock
+      return;
+    }
 
     // Get existing cart from localStorage
     const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
@@ -58,6 +63,8 @@ const ProductDetails = () => {
     }));
 
     addToCart({ ...bike, quantity: 1 });
+
+    toast.success(`${bike.name} added to cart!`); // ✅ Toast on successful add-to-cart
   };
 
   if (loading) {
@@ -94,8 +101,6 @@ const ProductDetails = () => {
             <p className="product-description">{bike.description}</p>
             <h4 className="product-price">{`$${bike.price.toLocaleString()}`}</h4>
             <p className="product-stock"><strong>Stock:</strong> {bike.quantity}</p>
-
-            {cartError && <Alert variant="danger">{cartError}</Alert>}
 
             <Button
               variant="success"

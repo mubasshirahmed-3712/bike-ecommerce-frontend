@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Button, Table, Alert } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
 import "../styles/Cart.css";
 
 const Cart = () => {
@@ -23,20 +24,21 @@ const Cart = () => {
       item._id === productId ? { ...item, quantity: newQuantity } : item
     );
     updateCartInStorage(updatedCart);
+    toast.success("Quantity updated!");
   };
 
   const handleRemoveFromCart = (productId) => {
     const updatedCart = cart.filter((item) => item._id !== productId);
     updateCartInStorage(updatedCart);
+    toast.error("Item removed from cart.");
   };
 
   const handleProceedToCheckout = () => {
     if (cart.length === 0) {
-      alert("Your cart is empty!");
+      toast.error("Your cart is empty!");
       return;
     }
-
-    // Navigate to checkout page (order will be placed there)
+    toast.success("Proceeding to checkout...");
     navigate("/checkout");
   };
 
@@ -44,6 +46,7 @@ const Cart = () => {
 
   return (
     <div className="cart-page container">
+      <Toaster position="top-right" reverseOrder={false} />
       <h2 className="text-center">🛒 Your Shopping Cart</h2>
 
       {cart.length === 0 ? (

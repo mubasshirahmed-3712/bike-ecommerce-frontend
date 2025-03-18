@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast"; // ✅ Import toast
 import "../styles/Profile.css";
 
 const Profile = () => {
@@ -17,7 +18,11 @@ const Profile = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("userInfo");
-    navigate("/register");
+    toast.success("Logged out successfully!"); // ✅ Show success toast
+
+    setTimeout(() => {
+      navigate("/register"); // Redirect after a slight delay
+    }, 1500);
   };
 
   return (

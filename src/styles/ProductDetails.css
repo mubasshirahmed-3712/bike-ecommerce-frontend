@@ -23,10 +23,10 @@
 
 /* Product Content Layout */
 .product-content {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
+  display: flex; /* Use flexbox for layout */
+  flex-wrap: nowrap; /* Prevent wrapping */
+  justify-content: space-between; /* Space between items */
+  align-items: flex-start; /* Align items at the start */
   background: #222;
   padding: 30px;
   border-radius: 10px;
@@ -36,7 +36,7 @@
 /* Product Image */
 .product-image {
   width: 100%;
-  max-width: 450px;
+  max-width: 450px; /* Keep the max width */
   height: auto;
   object-fit: cover;
   border-radius: 8px;
@@ -48,27 +48,25 @@
 }
 
 /* Specifications Table */
-.product-specs {
-  width: 100%;
-  max-width: 600px;
-  border-collapse: collapse;
-  margin-top: 20px;
+.specs-table {
+  width: 100%; /* Ensure the table takes full width */
+  margin-top: 20px; /* Add margin for spacing */
 }
 
-.product-specs th,
-.product-specs td {
+.specs-table th,
+.specs-table td {
   padding: 12px 15px;
   text-align: left;
   font-size: 1.1rem;
 }
 
-.product-specs th {
+.specs-table th {
   background: #00bcd4;
   color: #111;
   font-weight: bold;
 }
 
-.product-specs td {
+.specs-table td {
   background: #333;
   color: #e0e0e0;
   border-bottom: 1px solid #444;
@@ -119,21 +117,15 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   .product-content {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .product-specs th,
-  .product-specs td {
-    font-size: 1rem;
-    padding: 10px;
+    flex-direction: column; /* Stack items vertically */
+    text-align: center; /* Center text */
   }
 
   .product-image {
-    max-width: 100%;
+    max-width: 100%; /* Full width on small screens */
   }
 
   .add-to-cart-btn {
-    max-width: 100%;
+    max-width: 100%; /* Full width button */
   }
 }

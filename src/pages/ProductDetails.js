@@ -16,7 +16,9 @@ const ProductDetails = () => {
   useEffect(() => {
     const fetchBikeDetails = async () => {
       try {
-        const response = await fetch(`https://bike-ecommerce-backend.onrender.com/api/products/${id}`);
+        const response = await fetch(
+          `https://bike-ecommerce-backend.onrender.com/api/products/${id}`
+        );
         if (!response.ok) {
           throw new Error("Failed to fetch product details");
         }
@@ -69,11 +71,19 @@ const ProductDetails = () => {
   }
 
   if (error) {
-    return <Alert variant="danger" className="error-message">Error: {error}</Alert>;
+    return (
+      <Alert variant="danger" className="error-message">
+        Error: {error}
+      </Alert>
+    );
   }
 
   if (!bike) {
-    return <Alert variant="warning" className="error-message">Product not found!</Alert>;
+    return (
+      <Alert variant="warning" className="error-message">
+        Product not found!
+      </Alert>
+    );
   }
 
   return (
@@ -92,22 +102,67 @@ const ProductDetails = () => {
 
           <div className="col-md-6 product-info">
             <p className="product-description">{bike.description}</p>
-            <h4 className="product-price">{`$${bike.price.toLocaleString()}`}</h4>
-            <p className="product-stock"><strong>Stock:</strong> {bike.quantity}</p>
-            
-            <Table striped bordered hover variant="dark" className="specs-table">
+            <h4 className="product-price">
+              <span className="dollar">💲 </span>
+              {bike.price.toLocaleString()}
+            </h4>
+
+            <p className="product-stock">
+              <strong>Stock:</strong> {bike.quantity}
+            </p>
+
+            <Table
+              striped
+              bordered
+              hover
+              variant="dark"
+              className="specs-table"
+            >
               <tbody>
-                <tr><td>Brand</td><td>{bike.brand}</td></tr>
-                <tr><td>Category</td><td>{bike.category}</td></tr>
-                <tr><td>Engine Capacity</td><td>{bike.engineCapacity}</td></tr>
-                <tr><td>Horsepower</td><td>{bike.horsepower}</td></tr>
-                <tr><td>Torque</td><td>{bike.torque}</td></tr>
-                <tr><td>Weight</td><td>{bike.weight}</td></tr>
-                <tr><td>Top Speed</td><td>{bike.topSpeed}</td></tr>
-                <tr><td>Fuel Capacity</td><td>{bike.fuelCapacity}</td></tr>
-                <tr><td>Mileage</td><td>{bike.mileage}</td></tr>
-                <tr><td>Transmission</td><td>{bike.transmission}</td></tr>
-                <tr><td>Braking System</td><td>{bike.brakingSystem}</td></tr>
+                <tr>
+                  <td>Brand</td>
+                  <td>{bike.brand}</td>
+                </tr>
+                <tr>
+                  <td>Category</td>
+                  <td>{bike.category}</td>
+                </tr>
+                <tr>
+                  <td>Engine Capacity</td>
+                  <td>{bike.engineCapacity}</td>
+                </tr>
+                <tr>
+                  <td>Horsepower</td>
+                  <td>{bike.horsepower}</td>
+                </tr>
+                <tr>
+                  <td>Torque</td>
+                  <td>{bike.torque}</td>
+                </tr>
+                <tr>
+                  <td>Weight</td>
+                  <td>{bike.weight}</td>
+                </tr>
+                <tr>
+                  <td>Top Speed</td>
+                  <td>{bike.topSpeed}</td>
+                </tr>
+                <tr>
+                  <td>Fuel Capacity</td>
+                  <td>{bike.fuelCapacity}</td>
+                </tr>
+                <tr>
+                  <td>Mileage</td>
+                  <td>{bike.mileage}</td>
+                </tr>
+                <tr>
+                  <td>Transmission</td>
+                  <td>{bike.transmission}</td>
+                </tr>
+                <tr>
+                  <td>Braking System</td>
+                  <td>{bike.brakingSystem}</td>
+                </tr>
               </tbody>
             </Table>
 

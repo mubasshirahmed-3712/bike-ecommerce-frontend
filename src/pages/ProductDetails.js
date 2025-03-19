@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { Spinner, Button, Alert } from "react-bootstrap";
-import toast from "react-hot-toast"; // ✅ Import toast
-import { CartContext } from "../context/CartContext"; 
-import { useAuth } from "../context/AuthContext"; 
+import toast from "react-hot-toast";
+import { CartContext } from "../context/CartContext";
+import { useAuth } from "../context/AuthContext";
 import "../styles/ProductDetails.css";
 
 const ProductDetails = () => {
@@ -22,10 +22,10 @@ const ProductDetails = () => {
         }
         const data = await response.json();
         setBike(data);
-        toast.success("Product details loaded!"); // ✅ Toast when product details are successfully fetched
+        toast.success("Product details loaded!");
       } catch (error) {
         setError(error.message);
-        toast.error("Failed to load product details!"); // ✅ Toast when fetching fails
+        toast.error("Failed to load product details!");
       }
     };
 
@@ -35,16 +35,15 @@ const ProductDetails = () => {
   const handleAddToCart = () => {
     if (loading) return;
     if (!user) {
-      toast.error("You must be logged in to add items to the cart!"); // ✅ Toast when user is not logged in
+      toast.error("You must be logged in to add items to the cart!");
       return;
     }
 
     if (!bike || bike.quantity === 0) {
-      toast.error("This bike is out of stock!"); // ✅ Toast when bike is out of stock
+      toast.error("This bike is out of stock!");
       return;
     }
 
-    // Get existing cart from localStorage
     const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
     const existingItem = cartItems.find((item) => item._id === bike._id);
 
@@ -55,16 +54,10 @@ const ProductDetails = () => {
     }
 
     localStorage.setItem("cart", JSON.stringify(cartItems));
-
-    // Update the bike quantity in UI
-    setBike((prevBike) => ({
-      ...prevBike,
-      quantity: prevBike.quantity - 1,
-    }));
-
+    setBike((prevBike) => ({ ...prevBike, quantity: prevBike.quantity - 1 }));
     addToCart({ ...bike, quantity: 1 });
 
-    toast.success(`${bike.name} added to cart!`); // ✅ Toast on successful add-to-cart
+    toast.success(`${bike.name} added to cart!`);
   };
 
   if (loading) {
@@ -101,6 +94,17 @@ const ProductDetails = () => {
             <p className="product-description">{bike.description}</p>
             <h4 className="product-price">{`$${bike.price.toLocaleString()}`}</h4>
             <p className="product-stock"><strong>Stock:</strong> {bike.quantity}</p>
+            <p><strong>Brand:</strong> {bike.brand}</p>
+            <p><strong>Category:</strong> {bike.category}</p>
+            <p><strong>Engine Capacity:</strong> {bike.engineCapacity}</p>
+            <p><strong>Horsepower:</strong> {bike.horsepower}</p>
+            <p><strong>Torque:</strong> {bike.torque}</p>
+            <p><strong>Weight:</strong> {bike.weight}</p>
+            <p><strong>Top Speed:</strong> {bike.topSpeed}</p>
+            <p><strong>Fuel Capacity:</strong> {bike.fuelCapacity}</p>
+            <p><strong>Mileage:</strong> {bike.mileage}</p>
+            <p><strong>Transmission:</strong> {bike.transmission}</p>
+            <p><strong>Braking System:</strong> {bike.brakingSystem}</p>
 
             <Button
               variant="success"

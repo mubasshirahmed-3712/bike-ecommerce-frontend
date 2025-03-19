@@ -8,6 +8,7 @@
 .product-details .container {
   max-width: 1200px;
   margin: auto;
+  margin-top: 140px;
 }
 
 /* Product Content Layout */

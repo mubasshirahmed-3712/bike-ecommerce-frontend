@@ -1,4 +1,6 @@
 /* General Layout */
+
+@import url('https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap');
 .product-details {
   background-color: #1a1a1a; /* Dark background */
   color: #e0e0e0; /* Light text */
@@ -32,7 +34,9 @@
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(0, 188, 212, 0.3);
 }
-
+.product-description{
+  font-family: "Syne Mono", monospace;
+}
 /* Product Image */
 .product-image {
   width: 100%;

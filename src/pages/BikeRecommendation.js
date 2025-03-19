@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import bikesData from "../data/bikes"; // Import your bike data
-import "../styles/BikeRecommendation.css"; // Import the CSS file
+import React, { useState, useEffect } from "react";
+import "../styles/BikeRecommendation.css";
+import toast from "react-hot-toast";
 
 const BikeRecommendation = () => {
   const [filters, setFilters] = useState({
@@ -9,12 +9,38 @@ const BikeRecommendation = () => {
     engineCapacity: "",
   });
 
+  const [bikes, setBikes] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchBikes = async () => {
+      try {
+        const response = await fetch(
+          "https://bike-ecommerce-backend.onrender.com/api/products"
+        );
+        if (!response.ok) {
+          throw new Error("Failed to fetch bikes");
+        }
+        const data = await response.json();
+        setBikes(data);
+      } catch (error) {
+        setError(error.message);
+        toast.error("Failed to load bikes. Please try again.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBikes();
+  }, []);
+
   const handleChange = (e) => {
     setFilters({ ...filters, [e.target.name]: e.target.value });
   };
 
   // Filtering Logic
-  const filteredBikes = bikesData.filter((bike) => {
+  const filteredBikes = bikes.filter((bike) => {
     return (
       (!filters.brand || bike.brand === filters.brand) &&
       (!filters.category || bike.category === filters.category) &&
@@ -26,7 +52,7 @@ const BikeRecommendation = () => {
     <div className="recommendation-container">
       <h2 className="recommendation-title">Find Your Perfect Bike</h2>
 
-      {/* Filter Section */}
+      {/* Filters */}
       <div className="filter-section">
         <select name="brand" onChange={handleChange} className="filter-dropdown">
           <option value="">Select Brand</option>
@@ -57,21 +83,32 @@ const BikeRecommendation = () => {
         </select>
       </div>
 
-      {/* Results Section */}
-      <div className="bike-results">
-        {filteredBikes.length > 0 ? (
-          filteredBikes.map((bike, index) => (
-            <div key={index} className="bike-card">
-              <img src={bike.image} alt={bike.name} className="bike-image" />
-              <h3 className="bike-name">{bike.name}</h3>
-              <p className="bike-description">{bike.description}</p>
-              <h4 className="bike-price">${bike.price}</h4>
-            </div>
-          ))
-        ) : (
-          <p className="no-results">No bikes match your criteria.</p>
-        )}
-      </div>
+      {/* Loading and Error Handling */}
+      {loading ? (
+        <p className="loading-text">Loading bikes...</p>
+      ) : error ? (
+        <p className="error-text">{error}</p>
+      ) : (
+        <div className="bike-results">
+          {filteredBikes.length > 0 ? (
+            filteredBikes.map((bike) => (
+              <div key={bike._id} className="bike-card">
+                <img
+                  src={`https://bike-ecommerce-backend.onrender.com${bike.image}`}
+                  alt={bike.name}
+                  className="bike-image"
+                  onError={(e) => (e.target.src = "/images/default-bike.jpg")}
+                />
+                <h3 className="bike-name">{bike.name}</h3>
+                <p className="bike-description">{bike.description}</p>
+                <h4 className="bike-price">${bike.price.toLocaleString()}</h4>
+              </div>
+            ))
+          ) : (
+            <p className="no-results">No bikes match your criteria.</p>
+          )}
+        </div>
+      )}
     </div>
   );
 };

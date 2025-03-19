@@ -42,6 +42,15 @@
     border-color: #f39c12;
   }
   
+  /* Loading & Error */
+  .loading-text,
+  .error-text {
+    font-size: 18px;
+    color: #f1c40f;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  
   /* Bike Results */
   .bike-results {
     display: flex;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
-import { Spinner, Button, Alert } from "react-bootstrap";
+import { Spinner, Button, Alert, Table } from "react-bootstrap";
 import toast from "react-hot-toast";
 import { CartContext } from "../context/CartContext";
 import { useAuth } from "../context/AuthContext";
@@ -94,17 +94,22 @@ const ProductDetails = () => {
             <p className="product-description">{bike.description}</p>
             <h4 className="product-price">{`$${bike.price.toLocaleString()}`}</h4>
             <p className="product-stock"><strong>Stock:</strong> {bike.quantity}</p>
-            <p><strong>Brand:</strong> {bike.brand}</p>
-            <p><strong>Category:</strong> {bike.category}</p>
-            <p><strong>Engine Capacity:</strong> {bike.engineCapacity}</p>
-            <p><strong>Horsepower:</strong> {bike.horsepower}</p>
-            <p><strong>Torque:</strong> {bike.torque}</p>
-            <p><strong>Weight:</strong> {bike.weight}</p>
-            <p><strong>Top Speed:</strong> {bike.topSpeed}</p>
-            <p><strong>Fuel Capacity:</strong> {bike.fuelCapacity}</p>
-            <p><strong>Mileage:</strong> {bike.mileage}</p>
-            <p><strong>Transmission:</strong> {bike.transmission}</p>
-            <p><strong>Braking System:</strong> {bike.brakingSystem}</p>
+            
+            <Table striped bordered hover variant="dark" className="specs-table">
+              <tbody>
+                <tr><td>Brand</td><td>{bike.brand}</td></tr>
+                <tr><td>Category</td><td>{bike.category}</td></tr>
+                <tr><td>Engine Capacity</td><td>{bike.engineCapacity}</td></tr>
+                <tr><td>Horsepower</td><td>{bike.horsepower}</td></tr>
+                <tr><td>Torque</td><td>{bike.torque}</td></tr>
+                <tr><td>Weight</td><td>{bike.weight}</td></tr>
+                <tr><td>Top Speed</td><td>{bike.topSpeed}</td></tr>
+                <tr><td>Fuel Capacity</td><td>{bike.fuelCapacity}</td></tr>
+                <tr><td>Mileage</td><td>{bike.mileage}</td></tr>
+                <tr><td>Transmission</td><td>{bike.transmission}</td></tr>
+                <tr><td>Braking System</td><td>{bike.brakingSystem}</td></tr>
+              </tbody>
+            </Table>
 
             <Button
               variant="success"

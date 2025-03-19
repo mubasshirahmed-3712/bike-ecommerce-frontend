@@ -8,6 +8,7 @@ import Register from "./pages/Register";
 import Profile from "./pages/Profile";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
+import BikeRecommendation from "./pages/BikeRecommendation";
 import Footer from "./components/Footer";
 import Checkout from "./pages/Checkout";
 import { AuthProvider } from "./context/AuthContext"; 
@@ -27,6 +28,8 @@ function App() {
             <Route path="/product/:id" element={<ProductDetails />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/recommend" element={<BikeRecommendation />} />
+
             <Route path="*" element={<NotFound />} />
 
             {/* ✅ Protected Routes Group */}

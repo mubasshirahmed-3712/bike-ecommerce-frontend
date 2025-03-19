@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { FaHome, FaShoppingCart, FaMotorcycle, FaUser, FaUserPlus } from "react-icons/fa";
+import { FaHome, FaShoppingCart, FaMotorcycle, FaUser, FaUserPlus} from "react-icons/fa";
+import { FaMagnifyingGlassDollar } from "react-icons/fa6";
 import { FiLogOut } from "react-icons/fi";
 import { HiMenu, HiX } from "react-icons/hi";
 import { toast } from "react-hot-toast"; // ✅ Import Toast
@@ -69,6 +70,11 @@ function Navbar() {
             <li className="nav-item custom-nav-item">
               <NavLink className="nav-link custom-nav-link" to="/cart">
                 <FaShoppingCart className="nav-icon" /> Cart
+              </NavLink>
+            </li>
+            <li className="nav-item custom-nav-item">
+              <NavLink className="nav-link custom-nav-link" to="/recommend">
+                <FaMagnifyingGlassDollar className="nav-icon" />Bike Finder
               </NavLink>
             </li>
 

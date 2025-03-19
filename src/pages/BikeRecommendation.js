@@ -10,6 +10,10 @@ const BikeRecommendation = () => {
   });
 
   const [bikes, setBikes] = useState([]);
+  const [brands, setBrands] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [engineCapacities, setEngineCapacities] = useState([]);
+
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -24,6 +28,15 @@ const BikeRecommendation = () => {
         }
         const data = await response.json();
         setBikes(data);
+
+        // Extract unique brands, categories, and engine capacities dynamically
+        const uniqueBrands = [...new Set(data.map((bike) => bike.brand))];
+        const uniqueCategories = [...new Set(data.map((bike) => bike.category))];
+        const uniqueEngineCapacities = [...new Set(data.map((bike) => bike.engineCapacity))].sort((a, b) => a - b);
+
+        setBrands(uniqueBrands);
+        setCategories(uniqueCategories);
+        setEngineCapacities(uniqueEngineCapacities);
       } catch (error) {
         setError(error.message);
         toast.error("Failed to load bikes. Please try again.");
@@ -44,7 +57,7 @@ const BikeRecommendation = () => {
     return (
       (!filters.brand || bike.brand === filters.brand) &&
       (!filters.category || bike.category === filters.category) &&
-      (!filters.engineCapacity || bike.engineCapacity === filters.engineCapacity)
+      (!filters.engineCapacity || bike.engineCapacity === Number(filters.engineCapacity))
     );
   });
 
@@ -54,32 +67,34 @@ const BikeRecommendation = () => {
 
       {/* Filters */}
       <div className="filter-section">
+        {/* Brand Filter */}
         <select name="brand" onChange={handleChange} className="filter-dropdown">
           <option value="">Select Brand</option>
-          <option value="Harley Davidson">Harley Davidson</option>
-          <option value="Ducati">Ducati</option>
-          <option value="Kawasaki">Kawasaki</option>
-          <option value="Yamaha">Yamaha</option>
-          <option value="Honda">Honda</option>
-          <option value="Suzuki">Suzuki</option>
-          <option value="KTM">KTM</option>
-          <option value="Triumph">Triumph</option>
-          <option value="Aprilia">Aprilia</option>
+          {brands.map((brand) => (
+            <option key={brand} value={brand}>
+              {brand}
+            </option>
+          ))}
         </select>
 
+        {/* Category Filter */}
         <select name="category" onChange={handleChange} className="filter-dropdown">
           <option value="">Select Category</option>
-          <option value="Superbike">Superbike</option>
-          <option value="Cruiser">Cruiser</option>
-          <option value="Naked">Naked</option>
-          <option value="Touring">Touring</option>
+          {categories.map((category) => (
+            <option key={category} value={category}>
+              {category}
+            </option>
+          ))}
         </select>
 
+        {/* Engine Capacity Filter */}
         <select name="engineCapacity" onChange={handleChange} className="filter-dropdown">
           <option value="">Select Engine Capacity</option>
-          <option value="300cc-500cc">300cc - 500cc</option>
-          <option value="600cc-800cc">600cc - 800cc</option>
-          <option value="1000cc+">1000cc+</option>
+          {engineCapacities.map((capacity) => (
+            <option key={capacity} value={capacity}>
+              {capacity}cc
+            </option>
+          ))}
         </select>
       </div>
 

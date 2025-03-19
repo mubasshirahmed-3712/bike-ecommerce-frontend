@@ -95,7 +95,7 @@ const ProductDetails = () => {
             <h4 className="product-price">{`$${bike.price.toLocaleString()}`}</h4>
             <p className="product-stock"><strong>Stock:</strong> {bike.quantity}</p>
             
-            <Table striped bordered hover variant="dark" className="specs-table">
+            <Table striped bordered hover variant="dark" className="specs-table ">
               <tbody>
                 <tr><td>Brand</td><td>{bike.brand}</td></tr>
                 <tr><td>Category</td><td>{bike.category}</td></tr>

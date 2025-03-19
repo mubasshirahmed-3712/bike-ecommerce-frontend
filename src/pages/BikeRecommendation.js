@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Spinner, Alert } from "react-bootstrap";
 import { CartContext } from "../context/CartContext"; 
 import toast from "react-hot-toast"; 
-import "../styles/productStyles.css";
+import "../styles/BikeRecommendation.css";
 
 const BikeRecommendation = () => {
   const { addToCart } = useContext(CartContext);

@@ -10,7 +10,6 @@ import ServiceList from "../services/ServiceList.jsx";
 import MasonryImagesGallery from "../components/Image-gallery/MasonryImagesGallery.jsx";
 import Testimonials from "../components/Testimonial/Testimonials.jsx";
 
-
 const Home = () => {
   return (
     <>
@@ -119,22 +118,23 @@ const Home = () => {
         </section>
         {/* ========== EXPERIENCE SECTION END ============== */}
 
-
-         {/* ========== TESTIMONIAL SECTION START ================ */}
-      <section>
-         <Container>
+        {/* ========== TESTIMONIAL SECTION START ================ */}
+        <section>
+          <Container>
             <Row>
-               <Col lg='12'>
-                  <Subtitle subtitle={'Fans Love'} />
-                  <h2 className="testimonial__title">What our fans say about us</h2>
-               </Col>
-               <Col lg='12'>
-                  <Testimonials />
-               </Col>
+              <Col lg="12">
+                <Subtitle subtitle={"Riders Love"} />
+                <h2 className="testimonial__title">
+                  What Our Customers Say About Us
+                </h2>
+              </Col>
+              <Col lg="12">
+                <Testimonials />
+              </Col>
             </Row>
-         </Container>
-      </section>
-      {/* ========== TESTIMONIAL SECTION END ================== */}
+          </Container>
+        </section>
+        {/* ========== TESTIMONIAL SECTION END ================== */}
 
         {/* ========== GALLERY SECTION START ============== */}
         <section>
@@ -151,8 +151,6 @@ const Home = () => {
           </Container>
         </section>
         {/* ========== GALLERY SECTION END ================ */}
-
-
       </div>
     </>
   );

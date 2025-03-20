@@ -13,6 +13,7 @@ import MasonryImagesGallery from '../components/Image-gallery/MasonryImagesGalle
 const Home = () => {
   return (
     <>
+    <div className="home-container">
       {/* ========== TAGLINE SECTION ========== */}
       <section className="tagline__section text-center">
         <Container>
@@ -132,7 +133,7 @@ const Home = () => {
    </Container>
 </section>
 {/* ========== GALLERY SECTION END ================ */}
-
+      </div>
     </>
   );
 };

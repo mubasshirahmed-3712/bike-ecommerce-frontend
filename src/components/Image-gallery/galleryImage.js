@@ -17,20 +17,20 @@ import galleryImg15 from '../../assets/images2/bike10.jpg'
 
 
 const galleryImages = [
-   galleryImg01,
    galleryImg02,
-   galleryImg03,
-   galleryImg04,
+   galleryImg10,
+   galleryImg13,
+   galleryImg14,
    galleryImg05,
    galleryImg06,
    galleryImg07,
    galleryImg08,
    galleryImg09,
-   galleryImg10,
+   galleryImg01,
    galleryImg11,
    galleryImg12,
-   galleryImg13,
-   galleryImg14,
+   galleryImg04,
+   galleryImg03,
    galleryImg15,
 ]
 

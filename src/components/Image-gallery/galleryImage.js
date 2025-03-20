@@ -21,7 +21,6 @@ const galleryImages = [
    galleryImg10,
    galleryImg13,
    galleryImg14,
-   galleryImg05,
    galleryImg06,
    galleryImg07,
    galleryImg08,
@@ -29,6 +28,8 @@ const galleryImages = [
    galleryImg01,
    galleryImg11,
    galleryImg12,
+   galleryImg05,
+
    galleryImg04,
    galleryImg03,
    galleryImg15,

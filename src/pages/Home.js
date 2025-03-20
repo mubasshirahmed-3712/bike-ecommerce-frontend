@@ -1,9 +1,9 @@
 import React from 'react';
 import '../styles/Home.css';
 import { Container, Row, Col } from 'reactstrap';
-import heroVideo1 from '../assets/images2/bike-video2.mp4';
+import heroVideo1 from '../assets/images2/bike-video1.mp4';
 import heroVideo2 from '../assets/images2/bike-video2.mp4';
-import heroVideo3 from '../assets/images2/bike-video2.mp4';
+import heroVideo3 from '../assets/images2/bike-video4.mp4';
 import Subtitle from '../shared/subtitle.jsx'
 import worldImg from '../assets/images2/world.png'
 

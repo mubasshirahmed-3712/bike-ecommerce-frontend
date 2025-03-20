@@ -81,7 +81,7 @@ const ProductListing = () => {
             {error}
           </Alert>
         ) : (
-          <div className="rowz">
+          <div className="row row-css">
             {bikes.map((bike) => (
               <div className="col-md-4 col-sm-6 mb-4" key={bike._id}>
                 <div className="product-card">

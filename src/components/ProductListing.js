@@ -63,7 +63,7 @@ const ProductListing = () => {
 
   return (
     <div className="product-listing">
-      <div className="container">
+      <div className=" product-container">
         <h2>Explore Our Premium Superbikes</h2>
 
         <div className="go-to-cart-btn-container">
@@ -81,7 +81,7 @@ const ProductListing = () => {
             {error}
           </Alert>
         ) : (
-          <div className="row">
+          <div className="row row-css">
             {bikes.map((bike) => (
               <div className="col-md-4 col-sm-6 mb-4" key={bike._id}>
                 <div className="product-card">

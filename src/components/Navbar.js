@@ -68,15 +68,16 @@ function Navbar() {
               </NavLink>
             </li>
             <li className="nav-item custom-nav-item">
+              <NavLink className="nav-link custom-nav-link" to="/recommend">
+                <FaMagnifyingGlassDollar className="nav-icon" />Get recommendations
+              </NavLink>
+            </li>
+            <li className="nav-item custom-nav-item">
               <NavLink className="nav-link custom-nav-link" to="/cart">
                 <FaShoppingCart className="nav-icon" /> Cart
               </NavLink>
             </li>
-            <li className="nav-item custom-nav-item">
-              <NavLink className="nav-link custom-nav-link" to="/recommend">
-                <FaMagnifyingGlassDollar className="nav-icon" />Bike Finder
-              </NavLink>
-            </li>
+            
 
             {/* Profile (Inside Nav Links) */}
             {userInfo && (

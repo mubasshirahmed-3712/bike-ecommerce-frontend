@@ -8,6 +8,8 @@ import Register from "./pages/Register";
 import Profile from "./pages/Profile";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import BikeRecommendation from "./pages/BikeRecommendation";
 import Footer from "./components/Footer";
 import Checkout from "./pages/Checkout";

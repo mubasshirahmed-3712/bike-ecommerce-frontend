@@ -2,7 +2,7 @@
 import React from 'react';
 import ServiceCard from './ServiceCard';
 import { Col } from 'reactstrap';
-import { FaTools, FaMoneyBillWave, FaMotorcycle, FaPaintRoller } from 'react-icons/fa';
+import {  FaMoneyBillWave, FaMotorcycle, FaPaintRoller } from 'react-icons/fa';
 
 const servicesData = [
    {
@@ -15,11 +15,7 @@ const servicesData = [
       title: 'Bike Customization',
       desc: 'Modify your bike with unique colors, accessories, and performance upgrades.'
    },
-   {
-      icon: <FaTools size={50} color="blue" />, 
-      title: 'Servicing & Maintenance',
-      desc: 'Keep your bike in top condition with our expert servicing and repair solutions.'
-   },
+   
    {
       icon: <FaMoneyBillWave size={50} color="green" />, 
       title: 'Easy Financing',

@@ -10,9 +10,9 @@
   --font-name         : "Montserrat", sans-serif;
   --subtitle-font-name: "Island Moments", cursive;
 }
-.tagline{
-  margin-top: 250px;
-  margin-bottom: 25px;
+.tagline {
+  margin-bottom: 30px;
+  margin-top: 170px;
 }
 
 .hero__subtitle img {

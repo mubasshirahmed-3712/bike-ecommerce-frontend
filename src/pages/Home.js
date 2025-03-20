@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/home.css';
+import '../styles/Home.css';
 import { Container, Row, Col } from 'reactstrap';
 import heroVideo1 from '../assets/videos/bike1.mp4';
 import heroVideo2 from '../assets/videos/bike2.mp4';

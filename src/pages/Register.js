@@ -66,7 +66,7 @@ const Register = () => {
   };
 
   return (
-    <div className="register-page">
+    <div className="register-page gallcon">
       <motion.div
         className="register-container"
         initial={{ opacity: 0, scale: 0.9 }}

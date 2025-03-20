@@ -28,6 +28,11 @@
   margin-bottom: 30px;
 }
 
+.select-container {
+  position: relative;
+  width: 200px; /* Adjust width as needed */
+}
+
 .filter-dropdown {
   padding: 12px 20px;
   font-size: 16px;
@@ -36,11 +41,17 @@
   background-color: #1f1f1f;
   color: #f1c40f;
   cursor: pointer;
+  appearance: none; /* Remove default arrow */
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="%23f1c40f" viewBox="0 0 16 16"><path d="M4.5 8l4-4 4 4H4.5z"/></svg>'); /* Custom arrow */
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  transition: border-color 0.3s, background-color 0.3s;
 }
 
 .filter-dropdown:focus {
   outline: none;
   border-color: #f39c12;
+  background-color: #2c2c2c; /* Darker background on focus */
 }
 
 /* Loading & Error */

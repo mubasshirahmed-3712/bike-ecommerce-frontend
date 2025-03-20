@@ -65,32 +65,38 @@ const BikeRecommendation = () => {
       <h2 className="recommendation-title">Find Your Perfect Bike</h2>
 
       <div className="filter-section">
-        <select name="brand" onChange={handleChange} className="filter-dropdown">
-          <option value="">Select Brand</option>
-          {brands.map((brand) => (
-            <option key={brand} value={brand}>
-              {brand}
-            </option>
-          ))}
-        </select>
+        <div className="select-container">
+          <select name="brand" onChange={handleChange} className="filter-dropdown">
+            <option value="">Select Brand</option>
+            {brands.map((brand) => (
+              <option key={brand} value={brand}>
+                {brand}
+              </option>
+            ))}
+          </select>
+        </div>
 
-        <select name="category" onChange={handleChange} className="filter-dropdown">
-          <option value="">Select Category</option>
-          {categories.map((category) => (
-            <option key={category} value={category}>
-              {category}
-            </option>
-          ))}
-        </select>
+        <div className="select-container">
+          <select name="category" onChange={handleChange} className="filter-dropdown">
+            <option value="">Select Category</option>
+            {categories.map((category) => (
+              <option key={category} value={category}>
+                {category}
+              </option>
+            ))}
+          </select>
+        </div>
 
-        <select name="engineCapacity" onChange={handleChange} className="filter-dropdown">
-          <option value="">Select Engine Capacity</option>
-          {engineCapacities.map((capacity) => (
-            <option key={capacity} value={capacity}>
-              {capacity}cc
-            </option>
-          ))}
-        </select>
+        <div className="select-container">
+          <select name="engineCapacity" onChange={handleChange} className="filter-dropdown">
+            <option value="">Select Engine Capacity</option>
+            {engineCapacities.map((capacity) => (
+              <option key={capacity} value={capacity}>
+                {capacity}cc
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
 
       {loading ? (

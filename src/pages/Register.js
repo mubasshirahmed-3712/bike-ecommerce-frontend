@@ -144,6 +144,10 @@ const Register = () => {
           </div>
         </div>
       </motion.div>
+      <br/>
+      <br/>
+      <br/>
+      
     </div>
   );
 };

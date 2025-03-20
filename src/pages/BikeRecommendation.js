@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../styles/BikeRecommendation.css";
 import toast from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 const BikeRecommendation = () => {
   const [filters, setFilters] = useState({
@@ -29,7 +30,6 @@ const BikeRecommendation = () => {
         const data = await response.json();
         setBikes(data);
 
-        // Extract unique brands, categories, and engine capacities dynamically
         const uniqueBrands = [...new Set(data.map((bike) => bike.brand))];
         const uniqueCategories = [...new Set(data.map((bike) => bike.category))];
         const uniqueEngineCapacities = [...new Set(data.map((bike) => bike.engineCapacity))].sort((a, b) => a - b);
@@ -52,7 +52,6 @@ const BikeRecommendation = () => {
     setFilters({ ...filters, [e.target.name]: e.target.value });
   };
 
-  // Filtering Logic
   const filteredBikes = bikes.filter((bike) => {
     return (
       (!filters.brand || bike.brand === filters.brand) &&
@@ -65,9 +64,7 @@ const BikeRecommendation = () => {
     <div className="recommendation-container">
       <h2 className="recommendation-title">Find Your Perfect Bike</h2>
 
-      {/* Filters */}
       <div className="filter-section">
-        {/* Brand Filter */}
         <select name="brand" onChange={handleChange} className="filter-dropdown">
           <option value="">Select Brand</option>
           {brands.map((brand) => (
@@ -77,7 +74,6 @@ const BikeRecommendation = () => {
           ))}
         </select>
 
-        {/* Category Filter */}
         <select name="category" onChange={handleChange} className="filter-dropdown">
           <option value="">Select Category</option>
           {categories.map((category) => (
@@ -87,7 +83,6 @@ const BikeRecommendation = () => {
           ))}
         </select>
 
-        {/* Engine Capacity Filter */}
         <select name="engineCapacity" onChange={handleChange} className="filter-dropdown">
           <option value="">Select Engine Capacity</option>
           {engineCapacities.map((capacity) => (
@@ -98,7 +93,6 @@ const BikeRecommendation = () => {
         </select>
       </div>
 
-      {/* Loading and Error Handling */}
       {loading ? (
         <p className="loading-text">Loading bikes...</p>
       ) : error ? (
@@ -117,6 +111,9 @@ const BikeRecommendation = () => {
                 <h3 className="bike-name">{bike.name}</h3>
                 <p className="bike-description">{bike.description}</p>
                 <h4 className="bike-price">${bike.price.toLocaleString()}</h4>
+                <Link to={`/product/${bike._id}`} className="btn btn-primary">
+                  View Details
+                </Link>
               </div>
             ))
           ) : (

@@ -6,6 +6,8 @@ import heroVideo2 from '../assets/images2/bike-video2.mp4';
 import heroVideo3 from '../assets/images2/bike-video4.mp4';
 import Subtitle from '../shared/subtitle.jsx'
 import worldImg from '../assets/images2/world.png'
+import ServiceList from '../services/ServiceList.jsx'
+
 
 
 
@@ -57,6 +59,19 @@ const Home = () => {
          </Container>
       </section>
       {/* ============================================================== */}
+
+       {/* ==================== HERO SECTION START ====================== */}
+       <section>
+         <Container>
+            <Row>
+               <Col lg='3'>
+                  <h5 className="services__subtitle">What we serve</h5>
+                  <h2 className="services__title">We offer our best services</h2>
+               </Col>
+               <ServiceList />
+            </Row>
+         </Container>
+      </section>
       </>
    );
 };

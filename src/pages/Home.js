@@ -72,6 +72,44 @@ const Home = () => {
             </Row>
          </Container>
       </section>
+
+
+
+      {/* ========== EXPERIENCE SECTION START ============ */}
+<section>
+   <Container>
+      <Row>
+         <Col lg='6'>
+            <div className="experience__content">
+               <Subtitle subtitle={'Our Expertise'} />
+               <h2>Years of Passion, <br /> Thousands of Happy Riders</h2>
+               <p>
+                  With years of experience in the motorcycle industry, we are committed to delivering
+                  the best bikes, top-notch customization, and excellent after-sales service.
+                  <br /> Join thousands of riders who trust us for their dream ride.
+               </p>
+            </div>
+
+            <div className="counter__wrapper d-flex align-items-center gap-5">
+               <div className="counter__box">
+                  <span>20k+</span>
+                  <h6>Bikes Sold</h6>
+               </div>
+               <div className="counter__box">
+                  <span>5k+</span>
+                  <h6>Happy Customers</h6>
+               </div>
+               <div className="counter__box">
+                  <span>10+</span>
+                  <h6>Years in Business</h6>
+               </div>
+            </div>
+         </Col>
+      </Row>
+   </Container>
+</section>
+{/* ========== EXPERIENCE SECTION END ============== */}
+
       </>
    );
 };

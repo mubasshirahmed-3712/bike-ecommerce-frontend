@@ -15,11 +15,12 @@ const galleryImages = [
    galleryImg02,
    galleryImg03,
    galleryImg04,
+   galleryImg09,
+
    galleryImg05,
    galleryImg06,
    galleryImg07,
-   galleryImg08,
-   galleryImg09
+   galleryImg08
 ]
 
 export default galleryImages

@@ -23,6 +23,7 @@
 .service__item h6 {
    font-size  : 1.1rem;
    font-weight: 500;
+   color: #c59b36;
 }
 
 .service__item p {

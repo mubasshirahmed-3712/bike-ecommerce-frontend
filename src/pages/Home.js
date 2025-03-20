@@ -2,7 +2,7 @@ import React from "react";
 import "../styles/Home.css";
 import { Container, Row, Col } from "reactstrap";
 import heroVideo1 from "../assets/images2/bike-video1.mp4";
-import heroVideo2 from "../assets/images2/bike-video2.mp4";
+import heroVideo2 from "../assets/images2/bike-video3.mp4";
 import heroVideo3 from "../assets/images2/bike-video4.mp4";
 import Subtitle from "../shared/subtitle.jsx";
 import worldImg from "../assets/images2/world.png";
@@ -18,7 +18,8 @@ const Home = () => {
         <section className="tagline__section text-center">
           <Container>
             <h1 className="tagline">
-              Fuel Your Passion – The Road Awaits! 🚀🏍️
+              Fuel Your <span className="tgspn">Passion</span> ~~~The Road
+              Awaits! 🚀🏍️💨
             </h1>
           </Container>
         </section>
@@ -119,7 +120,7 @@ const Home = () => {
         {/* ========== EXPERIENCE SECTION END ============== */}
 
         {/* ========== TESTIMONIAL SECTION START ================ */}
-        <section>
+        <section className="adujstment">
           <Container>
             <Row>
               <Col lg="12">
@@ -136,22 +137,32 @@ const Home = () => {
         </section>
         {/* ========== TESTIMONIAL SECTION END ================== */}
 
-        {/* ========== GALLERY SECTION START ============== */}
-        <section>
-          <Container>
-            <Row>
-              <Col lg="12">
-                <Subtitle subtitle={"Gallery"} />
-                <h2 className="gallery__title">Explore Our Customers' Rides</h2>
-              </Col>
-              <Col lg="12">
-                <MasonryImagesGallery />
-              </Col>
-            </Row>
-          </Container>
-        </section>
-        {/* ========== GALLERY SECTION END ================ */}
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
       </div>
+      <hr />
+      {/* ========== GALLERY SECTION START ============== */}
+      <section className="gallerysect gallcon">
+        <Container>
+          <Row>
+            <Col lg="12">
+              <Subtitle subtitle={"Gallery"} />
+              <h2 className="gallery__title">Explore Our Customers' Rides</h2>
+            </Col>
+            <Col lg="12">
+              <MasonryImagesGallery />
+            </Col>
+          </Row>
+        </Container>
+      </section>
+      {/* ========== GALLERY SECTION END ================ */}
     </>
   );
 };

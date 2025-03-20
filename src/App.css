@@ -30,7 +30,7 @@ h1, h2, h3, h4, h5, h6 {
 :root {
   --primary-color: #ff7e01;
   --secondary-color: #faa935;
-  --heading-color: #0b2727;
+  --heading-color: #a9a9a9;
   --text-color: #6e7074;
   --font-name: "Montserrat", sans-serif;
   --subtitle-font-name: "Island Moments", cursive;
@@ -109,8 +109,8 @@ ul {
 
   border-radius: 50px;
   font-weight: 500;
-  font-size: 1.7rem;
-  color: var(--heading-color);
+  font-size: 2.3rem;
+  color: black;
 }
 
 

@@ -8,20 +8,22 @@ import Register from "./pages/Register";
 import Profile from "./pages/Profile";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 import BikeRecommendation from "./pages/BikeRecommendation";
 import Footer from "./components/Footer";
 import Checkout from "./pages/Checkout";
-import { AuthProvider } from "./context/AuthContext"; 
-import { CartProvider } from "./context/CartContext"; 
-import ProtectedRoute from "./components/ProtectedRoute"; 
-import { Toaster } from 'react-hot-toast';
+import { AuthProvider } from "./context/AuthContext";
+import { CartProvider } from "./context/CartContext";
+import ProtectedRoute from "./components/ProtectedRoute";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
-    <AuthProvider> 
-      <CartProvider> 
+    <AuthProvider>
+      <CartProvider>
         <Router>
           <Navbar />
           <Routes>

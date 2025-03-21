@@ -52,7 +52,7 @@ const OrderHistory = () => {
             <Card key={order._id} className="order-card">
               <Card.Body>
                 <Card.Title>Order ID: {order._id}</Card.Title>
-                <Card.Subtitle className="mb-2 text-muted">
+                <Card.Subtitle className="mb-2 datecss">
                   Date: {new Date(order.createdAt).toLocaleString()}
                 </Card.Subtitle>
                 <Card.Text>Total Price: <strong>${order.totalPrice.toFixed(2)}</strong></Card.Text>

@@ -52,7 +52,7 @@ const OrderHistory = () => {
                 <div className="order-items">
                   {order.items.map((item, index) => (
                     <div key={index} className="order-item">
-                      <img src={item.image || "/placeholder.png"} alt={item.name} className="order-item-image" />
+                      
                       
                       <div className="order-item-info">
                         <p>{item.name}</p>

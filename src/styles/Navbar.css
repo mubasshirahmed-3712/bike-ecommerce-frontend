@@ -1,21 +1,24 @@
 /* Import Custom Fonts */
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Knewave&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nova+Round&display=swap");
 
 /* Custom Navbar */
 .custom-navbar {
-  background: rgba(20, 20, 20, 0.9); /* Dark background */
+  background: rgba(10, 10, 10, 0.8); /* Blackish glassmorphism */
   backdrop-filter: blur(12px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
   padding: 1rem 2rem;
-  border-bottom: 4px solid #ffcc00; /* Gold border */
-  font-family: "Roboto", sans-serif; /* Updated font */
+  border-bottom: 4px double #3d351e;
+  font-family: "Nova Round", serif;
+  font-weight: 400;
+  font-style: normal;
   position: fixed;
   width: 100%;
   top: 0;
   left: 0;
   z-index: 1000;
 }
-
 .hidden-navbar {
   transform: translateY(-100%);
   transition: transform 0.3s ease-in-out;
@@ -38,7 +41,7 @@
 }
 
 /* Navbar Links */
-.custom-nav-list {
+.custom-nav-links {
   display: flex;
   align-items: center;
   gap: 20px;
@@ -61,7 +64,7 @@
   content: "";
   width: 0;
   height: 2px;
-  background: #ffcc00; /* Gold underline */
+  background: #ffcc00;
   position: absolute;
   left: 0;
   bottom: -4px;
@@ -73,11 +76,11 @@
 }
 
 .custom-nav-link:hover {
-  color: #ffcc00 !important; /* Gold color on hover */
+  color: #ffcc00 !important;
 }
 
 .custom-nav-link.active {
-  color: #ffcc00 !important; /* Gold color for active link */
+  color: #ffcc00 !important;
 }
 
 /* Navbar Icons */
@@ -101,7 +104,7 @@
 .logout-btn {
   display: flex;
   align-items: center;
-  background: #ff3b3b; /* Red background */
+  background: #ff3b3b;
   border-radius: 10px;
   padding: 10px 15px;
   cursor: pointer;
@@ -112,7 +115,7 @@
 }
 
 .logout-btn:hover {
-  background: #ff2020; /* Darker red on hover */
+  background: #ff2020;
 }
 
 .logout-icon {
@@ -122,7 +125,7 @@
 
 /* Responsive Breakpoints */
 
-/* Large tablets (up to 1024px) */
+/* ✅ Large tablets (up to 1024px) */
 @media (max-width: 1024px) {
   .custom-navbar {
     padding: 0.8rem 1.5rem;
@@ -133,7 +136,7 @@
     height: 70px;
   }
 
-  .custom-nav-list {
+  .custom-nav-links {
     gap: 15px;
   }
 
@@ -143,13 +146,13 @@
   }
 }
 
-/* Tablets & Medium Screens (up to 768px) */
+/* ✅ Tablets & Medium Screens (up to 768px) */
 @media (max-width: 768px) {
   .custom-toggler {
     display: block; /* Show toggler icon */
   }
 
-  .custom-nav-list {
+  .custom-nav-links {
     display: none; /* Hide navbar links initially */
     flex-direction: column;
     align-items: center;
@@ -157,13 +160,13 @@
     top: 100%;
     left: 0;
     width: 100%;
-    background: rgba(20, 20, 20, 0.95);
+    background: rgba(10, 10, 10, 0.95);
     backdrop-filter: blur(10px);
     padding: 20px 0;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
   }
 
-  .custom-nav-list.show {
+  .custom-nav-links.active {
     display: flex; /* Show when toggler is clicked */
   }
 
@@ -174,11 +177,14 @@
   }
 
   .logout-btn {
-    display: none !important;
+   display: none !important;
+  }
+  .lgc{
+    display: none;
   }
 }
 
-/* Small Mobile Screens (up to 480px) */
+/* ✅ Small Mobile Screens (up to 480px) */
 @media (max-width: 480px) {
   .custom-navbar {
     padding: 0.6rem 1rem;
@@ -189,7 +195,7 @@
     height: 60px;
   }
 
-  .custom-nav-list {
+  .custom-nav-links {
     padding: 15px 0;
   }
 
@@ -199,6 +205,9 @@
   }
 
   .logout-btn {
-    display: none !important;
+    display: none !important
+  }
+  .lgc{
+    display: none;
   }
 }

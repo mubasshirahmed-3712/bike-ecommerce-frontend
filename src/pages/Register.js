@@ -14,12 +14,10 @@ const Register = () => {
   });
   const [loading, setLoading] = useState(false);
 
-  // Handle input change
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value.trim() });
   };
 
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -43,7 +41,6 @@ const Register = () => {
         headers: { "Content-Type": "application/json" },
       });
 
-      // ✅ Store full user info with token
       localStorage.setItem(
         "userInfo",
         JSON.stringify({ name: data.name, email: data.email, token: data.token })
@@ -51,14 +48,11 @@ const Register = () => {
 
       toast.success(isLogin ? "Login Successful!" : "Registration Successful!");
 
-      // Redirect user to homepage after login/signup
       setTimeout(() => {
         window.location.href = "/";
       }, 1500);
     } catch (err) {
       toast.error(err.response?.data?.message || "Something went wrong!");
-
-      // ✅ Clear password fields in case of error
       setFormData((prev) => ({ ...prev, password: "", confirmPassword: "" }));
     } finally {
       setLoading(false);
@@ -144,10 +138,6 @@ const Register = () => {
           </div>
         </div>
       </motion.div>
-      <br/>
-      <br/>
-      <br/>
-      
     </div>
   );
 };

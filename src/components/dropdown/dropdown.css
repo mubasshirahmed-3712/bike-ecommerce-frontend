@@ -5,15 +5,16 @@
   }
   
   .buttonxyz {
-    background-color: #4CAF50;
-    color: #212121;
-    padding: 10px 15px;
-    font-size: 15px;
-    font-weight: bold;
-    border: 2px solid transparent;
+    border: 2px solid;
     border-radius: 15px;
+    color: #343131;
     cursor: pointer;
-  }
+    font-size: 15px;
+    font-weight: 700;
+    padding: 8px 12px;
+    margin-right: 3px;
+    margin-left: 2px;
+}
   
   .dropdown-content {
     display: none;

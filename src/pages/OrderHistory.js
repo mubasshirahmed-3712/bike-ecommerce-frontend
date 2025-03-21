@@ -10,7 +10,7 @@ const OrderHistory = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await axios.get("/api/orders/history", {
+        const response = await axios.get("https://bike-ecommerce-backend.onrender.com/api/orders/history", {
           headers: { Authorization: `Bearer ${user.token}` }, // Send token for auth
         });
         setOrders(response.data);

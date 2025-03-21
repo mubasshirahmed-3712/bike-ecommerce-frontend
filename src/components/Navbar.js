@@ -108,9 +108,7 @@ function Navbar() {
                 <FaShoppingCart className="nav-icon" /> Order History
               </NavLink>
             </li> */}
-            <li className="nav-item custom-nav-item">
-              <FeaturesDropdown />
-            </li>
+            
 
             {/* Profile (Inside Nav Links) */}
             {userInfo && (
@@ -128,7 +126,13 @@ function Navbar() {
                   <FaUserPlus className="nav-icon" /> Register
                 </NavLink>
               </li>
+
+              
             )}
+
+<li className="nav-item custom-nav-item">
+              <FeaturesDropdown />
+            </li>
           </ul>
         </div>
 

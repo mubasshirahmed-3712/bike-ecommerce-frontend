@@ -12,6 +12,8 @@ const OrderHistory = () => {
       try {
         const response = await axios.get("https://bike-ecommerce-backend.onrender.com/api/orders/history", {
           headers: { Authorization: `Bearer ${user.token}` }, // Send token for auth
+        //   adding withcredentials: true
+        
         });
         setOrders(response.data);
       } catch (error) {

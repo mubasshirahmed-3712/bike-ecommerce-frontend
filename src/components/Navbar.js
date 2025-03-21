@@ -101,7 +101,7 @@ function Navbar() {
             </li>
             {/* Features Dropdown */}
             <li className="nav-item custom-nav-item">
-              <Dropdown>
+              <Dropdown className="dropdown-center " aria-expanded="false">
                 <Dropdown.Toggle className="nav-link custom-nav-link dropdown-toggle">
                   Features
                 </Dropdown.Toggle>

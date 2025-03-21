@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useAuth } from "../context/AuthContext"; // Assuming you have authentication context
-import "./OrderHistory.css"; // Add styling if needed
+import "../styles/orderHistory.css"; // Add styling if needed
 
 const OrderHistory = () => {
   const [orders, setOrders] = useState([]);

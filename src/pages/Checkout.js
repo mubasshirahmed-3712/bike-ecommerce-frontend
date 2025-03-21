@@ -81,7 +81,7 @@ const Checkout = () => {
   };
 
   return (
-    <div className="checkout-page gallcon">
+    <div className="checkout-page ">
       <h2>Checkout</h2>
       <form onSubmit={handleSubmit}>
         <input type="text" name="fullName" placeholder="Full Name" value={formData.fullName} onChange={handleChange} required />

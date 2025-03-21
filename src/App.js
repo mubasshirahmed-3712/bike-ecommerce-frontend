@@ -19,6 +19,7 @@ import { AuthProvider } from "./context/AuthContext";
 import { CartProvider } from "./context/CartContext";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { Toaster } from "react-hot-toast";
+import OrderHistory from "./pages/OrderHistory";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
             {/* ✅ Protected Routes Group */}
             <Route element={<ProtectedRoute />}>
               <Route path="/checkout" element={<Checkout />} />
+              <Route path="/order-history" element={<OrderHistory />} />
               <Route path="/profile" element={<Profile />} />
             </Route>
           </Routes>

@@ -77,6 +77,11 @@ function Navbar() {
                 <FaShoppingCart className="nav-icon" /> Cart
               </NavLink>
             </li>
+            <li className="nav-item custom-nav-item">
+              <NavLink className="nav-link custom-nav-link" to="/order-history" >
+                <FaShoppingCart className="nav-icon" /> Order History
+              </NavLink>
+            </li>
             
 
             {/* Profile (Inside Nav Links) */}

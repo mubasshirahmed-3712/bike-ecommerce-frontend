@@ -55,12 +55,12 @@ const OrderHistory = () => {
                 <Card.Subtitle className="mb-2 datecss">
                   Date: {new Date(order.createdAt).toLocaleString()}
                 </Card.Subtitle>
-                <Card.Text>Total Price: <strong>${order.totalPrice.toFixed(2)}</strong></Card.Text>
+                <Card.Text>Total Price: <strong className="bikeprice">${order.totalPrice.toFixed(2)}</strong></Card.Text>
                 <div className="order-items">
                   {order.items.map((item, index) => (
                     <div key={index} className="order-item">
                       <div className="order-item-info">
-                        <p>{item.name}</p>
+                        <p className="bikenamecss">{item.name}</p>
                         <p>{item.quantity} x ${item.price}</p>
                       </div>
                     </div>

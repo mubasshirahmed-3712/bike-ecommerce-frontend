@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { FaHome, FaShoppingCart, FaMotorcycle, FaUser, FaUserPlus} from "react-icons/fa";
+import {
+  FaHome,
+  FaShoppingCart,
+  FaMotorcycle,
+  FaUser,
+  FaUserPlus,
+} from "react-icons/fa";
 import { FaMagnifyingGlassDollar } from "react-icons/fa6";
 import { FiLogOut } from "react-icons/fi";
 import { HiMenu, HiX } from "react-icons/hi";
@@ -8,6 +14,7 @@ import { toast } from "react-hot-toast"; // ✅ Import Toast
 import logo from "../assets/images/bike estore.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/Navbar.css";
+import FeaturesDropdown from "./dropdown/dropdown";
 
 function Navbar() {
   const navigate = useNavigate();
@@ -16,7 +23,9 @@ function Navbar() {
 
   const storedUserInfo = localStorage.getItem("userInfo");
   const userInfo =
-    storedUserInfo && storedUserInfo !== "undefined" && storedUserInfo !== "null"
+    storedUserInfo &&
+    storedUserInfo !== "undefined" &&
+    storedUserInfo !== "null"
       ? JSON.parse(storedUserInfo)
       : null;
 
@@ -42,7 +51,11 @@ function Navbar() {
   };
 
   return (
-    <nav className={`navbar navbar-expand-lg custom-navbar ${isScrolling ? "hidden-navbar" : ""}`}>
+    <nav
+      className={`navbar navbar-expand-lg custom-navbar ${
+        isScrolling ? "hidden-navbar" : ""
+      }`}
+    >
       <div className="container navbar-container">
         {/* Brand Logo */}
         <NavLink className="navbar-brand custom-brand" to="/">
@@ -50,12 +63,24 @@ function Navbar() {
         </NavLink>
 
         {/* Hamburger Button */}
-        <button className="navbar-toggler custom-toggler" type="button" onClick={() => setMenuOpen(!menuOpen)}>
-          {menuOpen ? <HiX className="toggler-icon" /> : <HiMenu className="toggler-icon" />}
+        <button
+          className="navbar-toggler custom-toggler"
+          type="button"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          {menuOpen ? (
+            <HiX className="toggler-icon" />
+          ) : (
+            <HiMenu className="toggler-icon" />
+          )}
         </button>
 
         {/* Centered Navbar Links */}
-        <div className={`collapse navbar-collapse ${menuOpen ? "show" : ""} custom-collapse`}>
+        <div
+          className={`collapse navbar-collapse ${
+            menuOpen ? "show" : ""
+          } custom-collapse`}
+        >
           <ul className="navbar-nav mx-auto custom-nav-list">
             <li className="nav-item custom-nav-item">
               <NavLink className="nav-link custom-nav-link" to="/">
@@ -67,22 +92,25 @@ function Navbar() {
                 <FaMotorcycle className="nav-icon" /> Products
               </NavLink>
             </li>
-            <li className="nav-item custom-nav-item">
+            {/* <li className="nav-item custom-nav-item">
               <NavLink className="nav-link custom-nav-link" to="/recommend">
-                <FaMagnifyingGlassDollar className="nav-icon" />Get recommendations
+                <FaMagnifyingGlassDollar className="nav-icon" />
+                Get recommendations
               </NavLink>
-            </li>
+            </li> */}
             <li className="nav-item custom-nav-item">
               <NavLink className="nav-link custom-nav-link" to="/cart">
                 <FaShoppingCart className="nav-icon" /> Cart
               </NavLink>
             </li>
-            <li className="nav-item custom-nav-item">
-              <NavLink className="nav-link custom-nav-link" to="/order-history" >
+            {/* <li className="nav-item custom-nav-item">
+              <NavLink className="nav-link custom-nav-link" to="/order-history">
                 <FaShoppingCart className="nav-icon" /> Order History
               </NavLink>
+            </li> */}
+            <li className="nav-item custom-nav-item">
+              <FeaturesDropdown />
             </li>
-            
 
             {/* Profile (Inside Nav Links) */}
             {userInfo && (

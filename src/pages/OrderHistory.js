@@ -53,12 +53,7 @@ const OrderHistory = () => {
                   {order.items.map((item, index) => (
                     <div key={index} className="order-item">
                       <img src={item.image || "/placeholder.png"} alt={item.name} className="order-item-image" />
-                      <img
-                      src={`https://bike-ecommerce-backend.onrender.com${item.image}`}
-                      alt={item.name}
-                      className="cart-image"
-                      onError={(e) => (e.target.src = "/images/default-bike.jpg")}
-                    />
+                      
                       <div className="order-item-info">
                         <p>{item.name}</p>
                         <p>{item.quantity} x ${item.price}</p>

@@ -68,37 +68,8 @@ ul {
   list-style: none;
 }
 
-.primary__btn {
-  background: var(--secondary-color) !important;
-  border: none !important;
-  border-radius: 50px !important;
-  padding: 0.4rem 1.5rem !important;
-}
 
-.primary__btn a {
-  font-size: 1.1rem;
-  text-decoration: none;
-  color: #fff;
-}
-.primary__btn a:hover {
-  color: inherit;
-}
-.secondary__btn {
-  background: transparent !important;
-  color: #0b2727 !important;
-  border: none !important;
-  font-weight: 500 !important;
-}
 
-.secondary__btn a {
-  text-decoration: none;
-  font-size: 1.1rem;
-  color: var(--heading-color);
-}
-
-.secondary__btn a:hover {
-  color: inherit;
-}
 
 .section__subtitle {
   background: var(--secondary-color);

@@ -18,7 +18,7 @@ const Home = () => {
         <section className="tagline__section text-center">
           <Container>
             <h1 className="tagline">
-              Fuel Your <span className="tgspn">Passion</span> ~~~The Road
+              <span className="tg-fuel">Fuel Your <span className="tgspn">Passion</span></span> <br/>~~~The Road
               Awaits! 🚀🏍️💨
             </h1>
           </Container>

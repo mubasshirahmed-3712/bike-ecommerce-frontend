@@ -7,6 +7,7 @@ import {
   FaUser,
   FaUserPlus,
 } from "react-icons/fa";
+ // eslint-disable-next-line 
 import { FaMagnifyingGlassDollar } from "react-icons/fa6";
 import { FiLogOut } from "react-icons/fi";
 import { HiMenu, HiX } from "react-icons/hi";

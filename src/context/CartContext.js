@@ -1,5 +1,7 @@
 import React, { createContext, useState, useEffect, useContext } from "react";
 import { useAuth } from "./AuthContext";
+import toast from "react-hot-toast";
+
 
 export const CartContext = createContext();
 
@@ -23,7 +25,7 @@ export const CartProvider = ({ children }) => {
   // Add to Cart
   const addToCart = (product) => {
     if (!user) {
-      alert("Please log in to add items to the cart.");
+      toast.error("Please log in to add items to the cart.");
       return;
     }
 
@@ -44,7 +46,7 @@ export const CartProvider = ({ children }) => {
   // Update Quantity
   const updateQuantity = (productId, newQuantity) => {
     if (!user) {
-      alert("Please log in to update cart items.");
+      toast.error("Please log in to update cart items.");
       return;
     }
 
@@ -58,7 +60,7 @@ export const CartProvider = ({ children }) => {
   // Remove from Cart
   const removeFromCart = (productId) => {
     if (!user) {
-      alert("Please log in to remove items from the cart.");
+      toast.error("Please log in to remove items from the cart.");
       return;
     }
 
